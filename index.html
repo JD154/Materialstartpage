@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <title>Startpage</title>
+</head>
+
+<body>
+    <nav class="nav-main-wrapper">
+        <hr class="nav-border">
+        <div class="nav-content">
+            <h1>Welcome back!</h1>
+        </div>
+    </nav>
+    <div class="centered-bar">
+        <div class="wrap">
+            <form class="search-form" method="get" action="https://duckduckgo.com/">
+                <input class='search' name='q' type='text' placeholder='Search something'/>
+                <button class='go' type='submit'><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <i id="close_btn" class="fas fa-times closebtn"></i>
+        <div class="sidebar-form">
+            <div class="input-wrapper">
+                <p>URL to set:</p>
+                <input placeholder="https://sitename.com" type="text" name="URL" id="setURL">
+            </div>
+             <div class="input-wrapper">
+                 <p>Name to set:</p>
+                 <input placeholder="Site name" type="text" name="name" id="setName">
+             </div>   
+            <button class="submit-form" id="set_url"><i class="fas fa-pen-alt"></i></button>
+        </div>
+        <div class="form-spacer"></div>
+        <div class="form-footer">
+            <p>Visit my others projects</p>
+            <div class="my-sites">
+                <a href="#"><i class="fas fa-home"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="body-wrapper">
+        <div class="box">
+            <h3 class="box-header">Development</h3>
+            <div class="box-content" id="development">
+            </div>
+            <div class="add-button">
+                <i id="dev_id" class="fas fa-plus-circle"></i>
+            </div>
+        </div>
+        <div class="box">
+            <h3 class="box-header">Reddit</h3>
+            <div class="box-content" id="reddit">
+            </div>
+            <div class="add-button">
+                <i id="reddit_id" class="fas fa-plus-circle"></i>
+            </div>
+        </div> 
+        <div class="box">
+            <h3 class="box-header">Social</h3>
+            <div class="box-content" id="social">
+            </div>
+            <div class="add-button">
+                <i id="social_id" class="fas fa-plus-circle"></i>
+            </div>
+        </div>  
+        <div class="box">
+            <h3 class="box-header">Others</h3>
+            <div class="box-content" id="others">
+            </div>
+            <div class="add-button">
+                <i id="others_id" class="fas fa-plus-circle"></i>
+            </div>
+        </div>                                    
+    </div>
+    <footer class="footer-wrap">
+        <p>Made with <i id="heart" class="fas fa-heart"></i> by Jesus Blanco</p>
+    </footer>
+    <div id="shadow-opacity"></div>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
