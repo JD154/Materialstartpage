@@ -20,73 +20,65 @@
     <div class="centered-bar">
         <div class="wrap">
             <form class="search-form" method="get" action="https://duckduckgo.com/">
-                <input class='search' name='q' type='text' placeholder='Search something'/>
-                <button class='go' type='submit'><i class="fa fa-search"></i></button>
+                <input class='search-input' name='q' type='text' placeholder='Search something'/>
+                <button class='go-search hover-opacity' type='submit'><i class="fa fa-search standard-size"></i></button>
             </form>
         </div>
     </div>
     <div id="mySidenav" class="sidenav">
-        <i id="close_btn" class="fas fa-times closebtn"></i>
+        <i id="close-sidebar" class="fas fa-times closebtn hover-opacity standard-size"></i>
         <div class="sidebar-form">
             <div class="input-wrapper">
                 <p>URL to set:</p>
-                <input placeholder="https://sitename.com" type="text" name="URL" id="setURL">
+                <input placeholder="https://sitename.com" type="text" name="URL" id="get-url">
             </div>
              <div class="input-wrapper">
                  <p>Name to set:</p>
-                 <input placeholder="Site name" type="text" name="name" id="setName">
+                 <input placeholder="Site name" type="text" name="name" id="get-name">
              </div>   
-            <button class="submit-form" id="set_url"><i class="fas fa-pen-alt"></i></button>
+            <div class="submit-form hover-opacity" id="send-data"><i class="fas fa-pen-alt standard-size"></i></div>
         </div>
         <div class="form-spacer"></div>
         <div class="form-footer">
             <p>Visit my others projects</p>
             <div class="my-sites">
-                <a href="#"><i class="fas fa-home"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fas fa-home hover-opacity"></i></a>
+                <a href="#"><i class="fab fa-github hover-opacity"></i></a>
+                <a href="#"><i class="fab fa-twitter hover-opacity"></i></a>
+                <a href="#"><i class="fab fa-instagram hover-opacity"></i></a>
             </div>
         </div>
     </div>
     <div class="body-wrapper">
         <div class="box">
             <h3 class="box-header">Development</h3>
-            <div class="box-content" id="development">
-            </div>
-            <div class="add-button">
-                <i id="dev_id" class="fas fa-plus-circle"></i>
-            </div>
+            <ul class="box-content" id="development">
+            </ul>
+            <div class="add-button"><i id="dev-id" class="fas fa-plus-circle"></i></div>
         </div>
         <div class="box">
             <h3 class="box-header">Reddit</h3>
-            <div class="box-content" id="reddit">
-            </div>
-            <div class="add-button">
-                <i id="reddit_id" class="fas fa-plus-circle"></i>
-            </div>
+            <ul class="box-content" id="reddit">
+            </ul>
+            <div class="add-button"><i id="reddit-id" class="fas fa-plus-circle"></i></div>
         </div> 
         <div class="box">
             <h3 class="box-header">Social</h3>
-            <div class="box-content" id="social">
-            </div>
-            <div class="add-button">
-                <i id="social_id" class="fas fa-plus-circle"></i>
-            </div>
+            <ul class="box-content" id="social">
+            </ul>
+            <div class="add-button"><i id="social-id" class="fas fa-plus-circle"></i></div>
         </div>  
         <div class="box">
             <h3 class="box-header">Others</h3>
-            <div class="box-content" id="others">
-            </div>
-            <div class="add-button">
-                <i id="others_id" class="fas fa-plus-circle"></i>
-            </div>
-        </div>                                    
+            <ul class="box-content" id="others">
+            </ul>
+            <div class="add-button"><i id="others-id" class="fas fa-plus-circle"></i></div>
+        </div>
     </div>
     <footer class="footer-wrap">
         <p>Made with <i id="heart" class="fas fa-heart"></i> by Jesus Blanco</p>
     </footer>
-    <div id="shadow-opacity"></div>
+    <div id="sidebar-overlay"></div>
     <script src="/js/scripts.js"></script>
 </body>
 </html>

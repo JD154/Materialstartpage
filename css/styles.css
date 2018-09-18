@@ -83,6 +83,14 @@ input:focus, button:focus{
     outline-width: 0;
 }
 
+.hover-opacity:hover{
+    opacity: 0.8;
+}
+
+.standard-size{
+    font-size: 12px;
+}
+
 /* End global selectors */
 
 .nav-main-wrapper {
@@ -127,7 +135,7 @@ input:focus, button:focus{
     border-radius: 3px;
 }
 
-.search {
+.search-input {
     font-size: 12px;
     padding: 0 10px;
     width: 400px;
@@ -135,13 +143,13 @@ input:focus, button:focus{
     border: none;
 }
 
-.search::placeholder {
+.search-input::placeholder {
     opacity: 1;
     color: var(--second-text-color);
     font-family: var(--font-light);
 }
 
-.go {
+.go-search {
     height: 42px;
     margin: 0;
     padding: 0;
@@ -150,14 +158,14 @@ input:focus, button:focus{
     color: var(--main-fg-color);
 }
 
-.go i {
+.go-search>i {
     font-size: 12px;
     cursor: pointer;
 }
 
 .sidenav {
     height: 100%;
-    width: 0;
+    width: 250px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -169,6 +177,7 @@ input:focus, button:focus{
     flex-direction: column;
     padding-top: 60px;
     box-shadow: var(--main-sidebar-shadow);
+    transform: translateX(-100%);
 }
 
 .closebtn{
@@ -208,14 +217,11 @@ input:focus, button:focus{
     border: none;
     background-color: var(--main-fg-color);
     border-radius: 3px;
-    padding: 5px 20px;
+    padding: 2px 15px;
     margin: 15px 0;
     float: right;
 }
 
-.submit-form:hover{
-    opacity: 0.8;
-}
 
 .submit-form>i{
     color: white;
@@ -245,7 +251,6 @@ input:focus, button:focus{
     color: var(--main-text-color);
     padding-left: 5px;
 }
-
 
 .body-wrapper {
     padding-top: 3%;
@@ -279,6 +284,8 @@ input:focus, button:focus{
 }
 
 .box-content {
+    list-style: none;
+    padding: 0;
     background-color: white;
     height: 100%;
     border-radius: 3px;
@@ -316,7 +323,7 @@ input:focus, button:focus{
     opacity: 1;
 }
 
-#shadow-opacity{
+#sidebar-overlay{
     position: absolute;
     top: 0;
     left: 0;
