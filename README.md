@@ -28,7 +28,5 @@ Add new web pages using plus button on each section.
 
 ## Meta
 
-Jesus Blanco – [@jesus_blanco96](https://twitter.com/jesus_blanco96) – YourEmail@example.com
-
-test
+Jesus Blanco – [@jesus_blanco96](https://twitter.com/jesus_blanco96)
 
