@@ -43,9 +43,9 @@ url_id.addEventListener('click', function send_data(){
     var domain_name = document.querySelector("#get-name").value;
 
     // Verifies in console each value before final set 
-    console.log(url_name);
-    console.log(domain_name);
-    console.log(set_id);
+    console.log("Domain url = " + url_name);
+    console.log("Domain name = " + domain_name);
+    console.log("ID to append = " + set_id);
 
     var li = document.createElement("li");        //create a li element
     li.className = "content-link";         //assign the appropiate class name to li
