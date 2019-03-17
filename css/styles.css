@@ -151,7 +151,7 @@ input:focus, button:focus{
 
 .search-input::placeholder {
     opacity: 1;
-    color: var(--second-text-color);
+    color: var(--main-text-color);
     font-family: var(--font-light);
 }
 

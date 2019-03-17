@@ -133,7 +133,7 @@ function clearValues(){
 function closeSideBar() {
     document.querySelector(".sidenav").classList.remove('sidenav-isvisible');
     document.querySelector(".sidebar-overlay").classList.remove('overlay-isvisible');
-    clearValues()
+    clearValues();
 }
 
 
