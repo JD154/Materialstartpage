@@ -5,10 +5,11 @@
     --body-background: #dadcde;
     --main-fg-color: #745fb5;
     --main-text-color: #9eaab6;
+    --placeholder-text-color: #afbecd;
     --second-text-color: #345;
     --main-box-shadow: 0 6px 8px rgba(102, 119, 136, .03), 0 1px 2px rgba(102, 119, 136, .3);
     --main-sidebar-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
-    --hover-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    --hover-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     --font-bold: 'OpenSansCondensed-Bold', sans-serif;
     --font-light: 'OpenSansCondensed-Light', sans-serif;
 }
@@ -84,7 +85,9 @@ input:focus, button:focus{
 }
 
 .hover-opacity:hover{
+    transition: opacity 0.3s cubic-bezier(0.0, 0.0, 0.2, 1);
     opacity: 0.8;
+    cursor: pointer;
 }
 
 .standard-size{
@@ -172,12 +175,16 @@ input:focus, button:focus{
     left: 0;
     background-color: white;
     overflow-x: hidden;
-    transition: 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: transform 0.35s cubic-bezier(0.4, 0.0, 0.2, 1);
     display: flex;
     flex-direction: column;
     padding-top: 60px;
     box-shadow: var(--main-sidebar-shadow);
-    transform: translateX(-100%);
+    transform: translateX(-250px);
+}
+
+.sidenav-isvisible{
+    transform: translateX(0%);
 }
 
 .closebtn{
@@ -189,6 +196,28 @@ input:focus, button:focus{
     margin: 15px;
     cursor: pointer;
 }
+.form-error{
+    height: 0px;
+    display: flex;
+    justify-content: center;
+    background-color: hsl(354, 85%, 44%);
+    transition: height 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.form-error>p{
+    display: none;
+}
+
+.form-error-isvisible{
+    height: 28px;
+}
+
+.form-error-isvisible>p{
+    display: initial;
+    margin: 5px 0;
+    color: white;
+    font-size: 12px;
+}
 
 .sidebar-form {
     width: 180px;
@@ -197,7 +226,7 @@ input:focus, button:focus{
 
 .input-wrapper>p{
     margin: 12px 0 0 0;
-    font-size: 12px;
+    font-size: 14px;
     color: var(--main-text-color);
 }
 
@@ -209,8 +238,9 @@ input:focus, button:focus{
 }
 
 .input-wrapper>input::placeholder{
-    color: var(--main-text-color);
+    color: var(--placeholder-text-color);
     font-family: var(--font-light);
+    font-size: 14px;
 }
 
 .submit-form{
@@ -223,8 +253,12 @@ input:focus, button:focus{
 }
 
 
-.submit-form>i{
+.submit-form>p{
     color: white;
+    margin: 0;
+    padding: 5px 0;
+    font-size: 12px;
+    font-family: var(--font-light);
 }
 
 .form-spacer{
@@ -299,13 +333,13 @@ input:focus, button:focus{
 .content-link>a {
     text-decoration: none;
     color: var(--second-text-color);
-    font-size: 12px;
+    font-size: 14px;
     padding-left: 10px;
 }
 
 .content-link:hover {
     box-shadow: var(--hover-box-shadow);
-    transition: all 0.3s cubic-bezier(0.0, 0.0, 0.2, 1);
+    transition: box-shadow 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
     border-radius: 3px;
 } 
 
@@ -323,7 +357,7 @@ input:focus, button:focus{
     opacity: 1;
 }
 
-#sidebar-overlay{
+.sidebar-overlay{ 
     position: absolute;
     top: 0;
     left: 0;
@@ -331,8 +365,13 @@ input:focus, button:focus{
     height: 100%;
     background-color: rgba(0,0,0,.5);
     opacity: 0;
-    transition: opacity 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
     pointer-events: none;
+}
+
+.overlay-isvisible{
+    transition: opacity 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .footer-wrap {

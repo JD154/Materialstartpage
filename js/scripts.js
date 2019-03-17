@@ -56,15 +56,19 @@ document.querySelector("#send-data").addEventListener('click', () => {
     console.log("Domain name = " + domainName);
     console.log("ID to append = " + setId);
 
-    saveSite(urlName, domainName, setId);        // Call function to save data in Local Storage
-    appendSite(urlName, domainName, setId);      // Call function to append data into the HTML
+    if (urlName && domainName){
+        saveSite(urlName, domainName, setId);        // Call function to save data in Local Storage
+        appendSite(urlName, domainName, setId);      // Call function to append data into the HTML
+        closeSideBar();
+    } else {
+        errorMessage();
+    }
 
     // Clear values 
     document.querySelector("#get-url").value = "";
     document.querySelector("#get-name").value = "";
     setId = "";
 
-    closeSideBar();
     console.log("values cleared!");
 
 });
@@ -109,17 +113,23 @@ document.querySelector("#close-sidebar").addEventListener('click', closeSideBar)
 
 // Function to set styles and make side bar visible 
 function openSideBar(){
-    document.querySelector(".sidenav").style.transform = "translateX(0%)";
-    document.querySelector("#sidebar-overlay").style.opacity = "1";
-    document.querySelector("#sidebar-overlay").style.pointerEvents = "auto";
-    document.querySelector("#sidebar-overlay").addEventListener('click', closeSideBar);
+    document.querySelector(".sidenav").classList.add('sidenav-isvisible');
+    document.querySelector(".sidebar-overlay").classList.add('overlay-isvisible');
+    document.querySelector(".sidebar-overlay").addEventListener('click', closeSideBar);
 }
 
+// When an input field is empty and submit an error message will be displayed
+function errorMessage(){
+    document.querySelector(".form-error").classList.add('form-error-isvisible');
+
+    setTimeout(() => {
+        document.querySelector(".form-error").classList.remove('form-error-isvisible');
+    }, 1500);
+}
 // Function to set styles and make side bar invisible
 function closeSideBar() {
-    document.querySelector(".sidenav").style.transform = "translateX(-100%)";
-    document.querySelector("#sidebar-overlay").style.opacity= "0";
-    document.querySelector("#sidebar-overlay").style.pointerEvents = "none";
+    document.querySelector(".sidenav").classList.remove('sidenav-isvisible');
+    document.querySelector(".sidebar-overlay").classList.remove('overlay-isvisible');
 }
 
 

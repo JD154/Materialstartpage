@@ -27,6 +27,9 @@
     </div>
     <div class="sidenav">
         <i id="close-sidebar" class="fas fa-times closebtn hover-opacity standard-size"></i>
+        <div class="form-error">
+            <p>You can't leave empty fields</p>
+        </div>
         <div class="sidebar-form">
             <div class="input-wrapper">
                 <p>URL to set:</p>
@@ -36,7 +39,7 @@
                  <p>Name to set:</p>
                  <input placeholder="Site name" type="text" name="name" id="get-name">
              </div>   
-            <div class="submit-form hover-opacity" id="send-data"><i class="fas fa-pen-alt standard-size"></i></div>
+            <div class="submit-form hover-opacity" id="send-data"><p>add</p></div>
         </div>
         <div class="form-spacer"></div>
         <div class="form-footer">
@@ -78,7 +81,7 @@
     <footer class="footer-wrap">
         <p>Made with <i id="heart" class="fas fa-heart"></i> by Jesus Blanco</p>
     </footer>
-    <div id="sidebar-overlay"></div>
+    <div class="sidebar-overlay"></div>
     <script src="/js/scripts.js"></script>
 </body>
 </html>
