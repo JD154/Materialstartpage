@@ -65,12 +65,7 @@ document.querySelector("#send-data").addEventListener('click', () => {
     }
 
     // Clear values 
-    document.querySelector("#get-url").value = "";
-    document.querySelector("#get-name").value = "";
-    setId = "";
-
-    console.log("values cleared!");
-
+    clearValues();
 });
 
 function saveSite(urlName, domainName, setId){
@@ -126,10 +121,19 @@ function errorMessage(){
         document.querySelector(".form-error").classList.remove('form-error-isvisible');
     }, 1500);
 }
+
+function clearValues(){
+    document.querySelector("#get-url").value = "";
+    document.querySelector("#get-name").value = "";
+    setId = "";
+
+    console.log("values cleared!");
+}
 // Function to set styles and make side bar invisible
 function closeSideBar() {
     document.querySelector(".sidenav").classList.remove('sidenav-isvisible');
     document.querySelector(".sidebar-overlay").classList.remove('overlay-isvisible');
+    clearValues()
 }
 
 
