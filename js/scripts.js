@@ -157,7 +157,6 @@ function errorMessage(){
 function clearValues(){
     document.querySelector("#get-url").value = "";
     document.querySelector("#get-name").value = "";
-    setId = "";
 
     console.log("values cleared!");
 }
