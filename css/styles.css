@@ -77,7 +77,7 @@
 body {
     background-image: var(--body-background);
     font-family: var(--font-light);
-    overflow: hidden;
+    height: 100%;
 }
 
 input:focus, button:focus{
@@ -118,7 +118,7 @@ input:focus, button:focus{
     justify-content: center;
 }
 
-.nav-content h1 {
+.nav-content  h1 {
     font-family: var(--font-bold);
     color: var(--main-text-color);
     vertical-align: middle;
@@ -134,7 +134,14 @@ input:focus, button:focus{
     animation: search-animation 0.7s forwards 0s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
+@media only screen and (max-width: 609px){
+    .form-wrap{
+        width: 85%;
+    }
+}
 .search-form{
+    width: 100%;
+    display: flex;
     box-shadow: var(--main-box-shadow);
     background-color: white;
     border: 3px solid white;
@@ -293,11 +300,20 @@ input:focus, button:focus{
 .body-wrapper {
     padding-top: 3%;
     display: grid;
-    grid-template-columns: repeat(4, 150px);
+    grid-template-columns: repeat(auto-fit, 150px);
     grid-template-rows: auto;
     grid-gap: 80px;
     justify-content: center;
     align-items: start;
+}
+
+@media only screen and (max-width: 850px){
+    .body-wrapper{
+        padding-top: 20px;
+        margin: 0px 15px;
+        grid-column-gap: 20px;
+        grid-row-gap: 0px;
+    }
 }
 
 .box {
