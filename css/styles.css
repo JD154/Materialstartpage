@@ -118,7 +118,7 @@ input:focus, button:focus{
     justify-content: center;
 }
 
-.nav-content>h1 {
+.nav-content h1 {
     font-family: var(--font-bold);
     color: var(--main-text-color);
     vertical-align: middle;
@@ -165,7 +165,7 @@ input:focus, button:focus{
     background-color: transparent;
 }
 
-.go-search>i {
+.go-search i {
     font-size: 12px;
     cursor: pointer;
 }
@@ -208,7 +208,7 @@ input:focus, button:focus{
     transition: height 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-.form-error>p{
+.form-error p{
     display: none;
 }
 
@@ -216,7 +216,7 @@ input:focus, button:focus{
     height: 28px;
 }
 
-.form-error-isvisible>p{
+.form-error-isvisible p{
     display: initial;
     margin: 5px 0;
     color: white;
@@ -228,20 +228,20 @@ input:focus, button:focus{
     align-self: center;
 }
 
-.input-wrapper>p{
+.input-wrapper p{
     margin: 12px 0 0 0;
     font-size: 14px;
     color: var(--main-text-color);
 }
 
-.input-wrapper>input{
+.input-wrapper input{
     width: 100%;
     padding: 5px 0 1px 0;
     border: none;
     border-bottom: 1px solid var(--main-fg-color);
 }
 
-.input-wrapper>input::placeholder{
+.input-wrapper input::placeholder{
     color: var(--placeholder-text-color);
     font-family: var(--font-light);
     font-size: 14px;
@@ -274,7 +274,7 @@ input:focus, button:focus{
     margin-bottom: 65px;
 }
 
-.form-footer>p{
+.form-footer p{
     font-size: 14px;
     color: var(--main-text-color);
     text-align: center;
@@ -336,7 +336,7 @@ input:focus, button:focus{
     transition: box-shadow 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
-.content-link>a {
+.content-link a {
     width: 100%;
     text-decoration: none;
     color: var(--second-text-color);
@@ -344,9 +344,24 @@ input:focus, button:focus{
     padding-left: 10px;
 }
 
+.content-link i{
+    display: none;
+    margin-right: 5px;
+    color: var(--main-text-color);
+    transition: color 0.3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
 .content-link:hover {
     box-shadow: var(--hover-box-shadow);
     border-radius: 3px;
+} 
+
+.content-link:hover i {
+    display: initial;
+    cursor: pointer;
+} 
+.content-link:hover i:hover {
+    color: var(--placeholder-text-color);
 } 
 
 .add-button{
@@ -392,7 +407,7 @@ input:focus, button:focus{
     animation: heart-animation 0.7s forwards 0s cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
-.footer-wrap>p, .footer-wrap>a{
+.footer-wrap p, .footer-wrap a{
     text-decoration: none;
     margin-bottom: 5px;
     font-size: 12px;

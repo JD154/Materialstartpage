@@ -28,20 +28,7 @@ document.querySelector("#others-id").addEventListener('click', () => {
 
 // When load will check if fetched array from localStorage is not empty
 document.addEventListener('DOMContentLoaded', () => {
-    let savedSites = JSON.parse(localStorage.getItem('savedSites'));        // Take object with sites and parse it to a string
-    
-    if (savedSites != null){
-        for (let i in savedSites){
-
-            // Get values of the string in each iteration and saves in variables
-            let url = savedSites[i].url;
-            let domain = savedSites[i].domain;
-            let id = savedSites[i].id;
-
-            appendSite(url, domain, id);        // Call function to append data into the HTML
-            console.log(url + " " + domain + " " + id);     // Check in console each iteration of the loop
-        }
-    }
+    getSite();
 });
 
 // Function to get data from input fields when user press the pencil button on side bar 
@@ -68,6 +55,7 @@ document.querySelector("#send-data").addEventListener('click', () => {
     clearValues();
 });
 
+// Function allow me save data from input fields into an object in LocalStorage
 function saveSite(urlName, domainName, setId){
     // Save input values in an object 
     let sitesObject = {
@@ -78,7 +66,7 @@ function saveSite(urlName, domainName, setId){
 
     // Check if local storage exist
     if (localStorage.getItem('savedSites') === null){
-        let savedSites = [];        // if not exist will init a new array
+        let savedSites = [];        // If not exist will init a new array
         savedSites.push(sitesObject);       // Add new object to the existing object array 
         localStorage.setItem('savedSites', JSON.stringify(savedSites));     // Save modified object in Local Storage
 
@@ -89,18 +77,63 @@ function saveSite(urlName, domainName, setId){
     }
 }
 
+// Function is called when I want to get data from LocalStorage objects and put in variables
+function getSite(){
+    let savedSites = JSON.parse(localStorage.getItem('savedSites'));        // Take object with sites and parse it to a string
+
+    if (savedSites != null){
+        for (const i in savedSites){
+
+            // Get values of the string in each iteration and saves in variables
+            let url = savedSites[i].url;
+            let domain = savedSites[i].domain;
+            let id = savedSites[i].id;
+
+            appendSite(url, domain, id);        // Call function to append data into the HTML
+            console.log(url + " " + domain + " " + id);     // Check in console each iteration of the loop
+        }
+    }
+}
+
+// Function to add fetched data from LocalStorage into HTML
 function appendSite(urlName, domainName, set_id){
-    let li = document.createElement("li");        //create a li element
-    li.className = "content-link";         //assign the appropiate class name to li
+    let li = document.createElement("li");        // Create a li element
+    li.className = "content-link";         // Assign the appropiate class name to li
 
-    let anchor = document.createElement('a');       //create a anchor element
-    anchor.setAttribute('href', urlName);      //use data from input field to set an href url
-    anchor.innerHTML = domainName;     //use data from input field to set text to this anchor
+    let anchor = document.createElement('a');       // Create a anchor element
+    anchor.setAttribute('href', urlName);      // Use data from input field to set an href url
+    anchor.innerHTML = domainName;     // Use data from input field to set text to this anchor
 
-    li.appendChild(anchor);        //append the anchor to the li created
+    let icon = document.createElement('i');     // Create i element
+    icon.className = "far fa-trash-alt";        // Add FontAwesome classes for an trash can
+    icon.addEventListener('click', deleteSite);     // Add eventListener to each icon to after delete entire element
 
-    let element = document.querySelector(set_id);      //search for appropiate section with the id provided
-    element.appendChild(li);       //append created li to the appropiate section
+    li.appendChild(anchor);        // Append the anchor to the li created
+    li.appendChild(icon);           // Append the icon to the li created
+    
+    let element = document.querySelector(set_id);      // Search for appropiate section with the id provided
+    element.appendChild(li);       // Append created li to the appropiate section
+}
+
+// Function to search for anchor content delete entire object from LocalStorage
+function deleteSite(){
+    let parent = this.parentElement;        // Search for the parent element of the icon
+    let anchor = parent.firstChild.innerHTML;        // After search for the parent will search for the anchor as firstChild and get domain name
+    
+    let savedSites = JSON.parse(localStorage.getItem('savedSites'));
+
+    for (const i in savedSites) {
+
+        if (savedSites[i].domain == anchor) {
+            savedSites.splice(i, 1);
+            console.log("li element deleted!");
+        } 
+
+        localStorage.setItem('savedSites', JSON.stringify(savedSites));     // Save modified object in Local Storage
+        document.querySelectorAll(".content-link").forEach(e => e.remove());        //search for li items to delete them and next re-print new data
+
+        getSite();      // Call function to re-print items with the modified LocalStorage
+    }
 }
 
 // Assign click event listener to X button on the side bar 
@@ -122,6 +155,7 @@ function errorMessage(){
     }, 1500);
 }
 
+// Function to clear values on inputs
 function clearValues(){
     document.querySelector("#get-url").value = "";
     document.querySelector("#get-name").value = "";
@@ -129,14 +163,10 @@ function clearValues(){
 
     console.log("values cleared!");
 }
+
 // Function to set styles and make side bar invisible
 function closeSideBar() {
     document.querySelector(".sidenav").classList.remove('sidenav-isvisible');
     document.querySelector(".sidebar-overlay").classList.remove('overlay-isvisible');
     clearValues();
 }
-
-
-
-
-
