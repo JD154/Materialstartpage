@@ -130,9 +130,7 @@ function deleteSite(){
         } 
 
         localStorage.setItem('savedSites', JSON.stringify(savedSites));     // Save modified object in Local Storage
-        document.querySelectorAll(".content-link").forEach(e => e.remove());        //search for li items to delete them and next re-print new data
-
-        getSite();      // Call function to re-print items with the modified LocalStorage
+        parent.remove();        //remove complete desired li element
     }
 }
 
