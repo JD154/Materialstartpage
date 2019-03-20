@@ -28,6 +28,38 @@ document.querySelector("#others-id").addEventListener('click', () => {
     console.log("ID = " + setId);
 });
 
+
+// When load will check if fetched array from localStorage is not empty
+document.addEventListener('DOMContentLoaded', () => {
+    getSite();
+    getSections();
+});
+
+
+// Function to get data from input fields when user press the pencil button on side bar 
+document.querySelector("#send-data").addEventListener('click', () => {
+    
+    // Get content from input fields 
+    let urlName = document.querySelector("#get-url").value;
+    let domainName = document.querySelector("#get-name").value;
+    
+    // Check in console each value before final set 
+    console.log("Domain url = " + urlName);
+    console.log("Domain name = " + domainName);
+    console.log("ID to append = " + setId);
+    
+    if (urlName && domainName){
+        saveSite(urlName, domainName, setId);        // Call function to save data in Local Storage
+        appendSite(urlName, domainName, setId);      // Call function to append data into the HTML
+        closeSideBar();
+    } else {
+        errorMessage();
+    }
+    
+    // Clear values 
+    clearValues();
+});
+
 document.querySelector("#modal-trigger").addEventListener('click', () => {
     document.querySelector(".modal-overlay").style.display = "block";
 
@@ -40,34 +72,25 @@ document.querySelector("#modal-trigger").addEventListener('click', () => {
     });
 });
 
-// When load will check if fetched array from localStorage is not empty
-document.addEventListener('DOMContentLoaded', () => {
-    getSite();
-    getSections();
-});
+document.querySelector("#section-change").addEventListener('click', () => {
+    let nameToChange = document.querySelector(".modal-input").value;
+    
+    if (nameToChange && selectedSection){
+        let savedSections = JSON.parse(localStorage.getItem('savedSections'));
 
-// Function to get data from input fields when user press the pencil button on side bar 
-document.querySelector("#send-data").addEventListener('click', () => {
+        for (const i in savedSections) {
+            if (savedSections[i].sectionName == selectedSection) {
+                savedSections[i].sectionName = nameToChange;
+            } 
+    
+            localStorage.setItem('savedSections', JSON.stringify(savedSections));     // Save changes in Local Storage
+        }
 
-    // Get content from input fields 
-    let urlName = document.querySelector("#get-url").value;
-    let domainName = document.querySelector("#get-name").value;
-
-    // Check in console each value before final set 
-    console.log("Domain url = " + urlName);
-    console.log("Domain name = " + domainName);
-    console.log("ID to append = " + setId);
-
-    if (urlName && domainName){
-        saveSite(urlName, domainName, setId);        // Call function to save data in Local Storage
-        appendSite(urlName, domainName, setId);      // Call function to append data into the HTML
-        closeSideBar();
-    } else {
-        errorMessage();
     }
-
-    // Clear values 
-    clearValues();
+    getSections();
+    document.querySelector(".modal-overlay").style.display = "none";
+    document.querySelector(".modal-input").value = "";
+    document.querySelector("#dropdown-trigger").innerHTML = "Select section";
 });
 
 // Function is called when I want to get data from LocalStorage objects and put in variables
@@ -207,7 +230,6 @@ function getSections(){
 }
 
 function saveSections(sectionsArray){
-
     let saveSection;
     let savedSections = [];
 
@@ -221,27 +243,6 @@ function saveSections(sectionsArray){
         }
     }
 }
-
-document.querySelector("#section-change").addEventListener('click', () => {
-    let nameToChange = document.querySelector(".modal-input").value;
-    
-    if (nameToChange && selectedSection){
-        let savedSections = JSON.parse(localStorage.getItem('savedSections'));
-
-        for (const i in savedSections) {
-            if (savedSections[i].sectionName == selectedSection) {
-                savedSections[i].sectionName = nameToChange;
-            } 
-    
-            localStorage.setItem('savedSections', JSON.stringify(savedSections));     // Save changes in Local Storage
-        }
-
-    }
-    getSections();
-    document.querySelector(".modal-overlay").style.display = "none";
-    document.querySelector(".modal-input").value = "";
-    document.querySelector("#dropdown-trigger").innerHTML = "Select section";
-});
 
 function reprintSections(){
     let savedSections = JSON.parse(localStorage.getItem('savedSections'));

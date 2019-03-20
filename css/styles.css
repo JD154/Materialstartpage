@@ -568,7 +568,7 @@ input:focus, button:focus{
 .float-btn{
     width: 56px;
     height: 56px;
-    position: absolute;
+    position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
     background-color: var(--main-fg-color);
