@@ -55,27 +55,53 @@
     <div class="body-wrapper">
         <div class="box">
             <h3 class="box-header">Development</h3>
-            <ul class="box-content" id="development">
+            <ul class="box-content" id="section1">
             </ul>
             <div class="add-button"><i id="dev-id" class="fas fa-plus-circle"></i></div>
         </div>
         <div class="box">
             <h3 class="box-header">Reddit</h3>
-            <ul class="box-content" id="reddit">
+            <ul class="box-content" id="section2">
             </ul>
             <div class="add-button"><i id="reddit-id" class="fas fa-plus-circle"></i></div>
         </div> 
         <div class="box">
             <h3 class="box-header">Social</h3>
-            <ul class="box-content" id="social">
+            <ul class="box-content" id="section3">
             </ul>
             <div class="add-button"><i id="social-id" class="fas fa-plus-circle"></i></div>
         </div>  
         <div class="box">
             <h3 class="box-header">Others</h3>
-            <ul class="box-content" id="others">
+            <ul class="box-content" id="section4">
             </ul>
             <div class="add-button"><i id="others-id" class="fas fa-plus-circle"></i></div>
+        </div>
+    </div>
+    <button id="modal-trigger" class="float-btn hover-opacity"><i class="fas fa-pen"></i></button>
+    <div class="modal-overlay">
+        <div class="modal">
+            <div class="modal-close"><i id="close-modal" class="fas fa-times"></i></div>
+            <div class="modal-header">
+                <p>Edit sections name</p>
+            </div>
+            <div class="modal-content">
+                <div class="input-field">
+                    <p>Section:</p>
+                    <div class="dropdown">
+                        <button id="dropdown-trigger">Select section</button>
+                        <ul id="page-sections" class="dropdown-content">
+                        </ul>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <p>Rename to:</p>
+                    <input type="text" class="modal-input" placeholder="Reddit">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="section-change" class="hover-opacity">Apply</button>
+            </div>
         </div>
     </div>
     <div class="page-spacer"></div>
