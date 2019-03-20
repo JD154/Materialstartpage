@@ -1,3 +1,17 @@
+@font-face{
+    font-family: OpenSansCondensed-Light;
+    src: url('../fonts/OpenSansCondensed-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: OpenSansCondensed-Bold;
+    src: url('../fonts/OpenSansCondensed-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     background-image: url('../images/Liquid-Cheese.svg');
     background-attachment: fixed;
@@ -7,8 +21,14 @@
     --main-text-color: #9eaab6;
     --placeholder-text-color: #afbecd;
     --second-text-color: #345;
-    --main-box-shadow: 0 6px 8px rgba(102, 119, 136, .03), 0 1px 2px rgba(102, 119, 136, .3);
-    --main-sidebar-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    --main-border-radius: 4px;
+    --main-box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    --main-sidebar-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
+    --dropdown-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+    --dropdown-hover-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    --modal-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);
+    --fab-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+    --fab-hover-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);
     --hover-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     --font-bold: 'OpenSansCondensed-Bold', sans-serif;
     --font-light: 'OpenSansCondensed-Light', sans-serif;
@@ -73,6 +93,14 @@
 
 /* End keyframes */
 
+/* Reset html */
+
+*{
+    padding: 0;
+    margin: 0;
+}
+/* End reset html */
+
 /* Global selectors */
 body {
     position: relative;
@@ -101,8 +129,18 @@ input:focus, button:focus{
 }
 
 .standard-size{
-    font-size: 12px;
+    font-size: 1rem;
 }
+
+button{
+    height: 32px;
+    font-size: 0.8rem;
+}
+
+p{
+    font-size: 1rem;
+}
+
 
 /* End global selectors */
 
@@ -132,6 +170,7 @@ input:focus, button:focus{
     font-size: 2em;
     animation: nav-animation 0.7s forwards 0s cubic-bezier(0.4, 0.0, 0.2, 1);
     padding: 0 15px;
+    margin: 25px 0;
 }
 
 .centered-bar {
@@ -152,7 +191,7 @@ input:focus, button:focus{
     box-shadow: var(--main-box-shadow);
     background-color: white;
     border: 3px solid white;
-    border-radius: 3px;
+    border-radius: var(--main-border-radius);
 }
 
 .search-input {
@@ -197,11 +236,11 @@ input:focus, button:focus{
     display: flex;
     flex-direction: column;
     padding-top: 60px;
-    box-shadow: var(--main-sidebar-shadow);
     transform: translateX(-250px);
 }
 
 .sidenav-isvisible{
+    box-shadow: var(--main-sidebar-shadow);
     transform: translateX(0%);
 }
 
@@ -238,8 +277,10 @@ input:focus, button:focus{
 }
 
 .sidebar-form {
-    width: 180px;
-    align-self: center;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .input-wrapper:nth-child(2){
@@ -267,20 +308,12 @@ input:focus, button:focus{
 
 .submit-form{
     border: none;
-    background-color: var(--main-fg-color);
-    border-radius: 3px;
-    padding: 2px 15px;
-    margin: 15px 0;
-    float: right;
-}
-
-
-.submit-form>p{
     color: white;
-    margin: 0;
-    padding: 5px 0;
-    font-size: 12px;
-    font-family: var(--font-light);
+    background-color: var(--main-fg-color);
+    border-radius: var(--main-border-radius);
+    padding: 0px 16px;
+    margin: 15px 0;
+    align-self: flex-end;
 }
 
 .form-spacer{
@@ -303,13 +336,13 @@ input:focus, button:focus{
     text-align: center;
 }
 
-.my-sites>a{
+.my-sites a{
     color: var(--main-text-color);
     padding-left: 5px;
 }
 
 .body-wrapper {
-    padding-top: 3%;
+    margin-top: 4%;
     display: grid;
     grid-template-columns: repeat(auto-fit, 150px);
     grid-template-rows: auto;
@@ -351,9 +384,10 @@ input:focus, button:focus{
 .box-content {
     list-style: none;
     padding: 0;
+    margin: 16px 0;
     background-color: white;
     height: 100%;
-    border-radius: 3px;
+    border-radius: var(--main-border-radius);
     box-shadow: var(--main-box-shadow);
 }
 
@@ -380,7 +414,7 @@ input:focus, button:focus{
 
 .content-link:hover {
     box-shadow: var(--hover-box-shadow);
-    border-radius: 3px;
+    border-radius: var(--main-border-radius);
 } 
 
 .content-link:hover i {
@@ -396,13 +430,179 @@ input:focus, button:focus{
     display: flex;
     justify-content: center;
     color: var(--main-fg-color);
-    opacity: 0.1;
+    opacity: 0.2;
     cursor: pointer;
     transition: opacity 0.3s cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
 .add-button:hover{
     opacity: 1;
+}
+
+.float-btn{
+    width: 56px;
+    height: 56px;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: var(--main-fg-color);
+    border-radius: 50%;
+    border: none;
+    padding: 15px;
+    box-shadow: var(--fab-shadow);
+    transition: all 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
+    cursor: pointer;
+}
+
+.float-btn i{
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.float-btn:hover{
+    box-shadow: var(--fab-hover-shadow);
+}
+
+.float-btn:hover i{
+    font-size: 1rem;
+}
+
+.modal-overlay{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal{
+    background-color: white;
+    width: auto;
+    height: auto;
+    border-radius: var(--main-border-radius);
+    max-width: 230px;
+    margin: 15% auto;
+    padding: 15px;
+    box-shadow: var(--modal-shadow);
+    animation: search-animation 0.4s forwards 0s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.modal-header p{
+    color: var(--main-text-color);
+    margin: 0;
+    font-size: 1.1rem;
+}
+.modal-content{
+    margin-top: 15px;
+}
+
+.input-field{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.input-field p{
+    width: 65px;
+    margin-right: 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+    color: var(--main-text-color);
+}
+
+.dropdown{
+    position: relative;
+}
+
+#dropdown-trigger{
+    width: 150px;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--main-border-radius);
+    padding: 5px 16px;
+    text-align: center;
+    background-color: white;
+    color: var(--main-fg-color);
+    font-size: 1rem;
+    transition: background-color 0.3s cubic-bezier(0.0, 0.0, 0.2, 1);
+    box-shadow: var(--dropdown-shadow);
+}
+
+#dropdown-trigger:hover{
+    background-color: rgba(0,0,0,.1);
+}
+
+.dropdown-content {
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 150px;
+    display: none;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: var(--dropdown-hover-shadow);
+}
+
+.dropdown-content li{
+    padding: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.dropdown-content li:last-child{
+    margin-bottom: 0;
+}
+
+.dropdown-content li:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.modal-input{
+    width: 150px;
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid var(--main-fg-color);
+    padding-bottom: 3px;
+    font-size: 1rem;
+}
+
+.modal-input::placeholder{
+    color: var(--placeholder-text-color);
+    font-size: 1rem;
+}
+
+.modal-footer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-footer button{
+    background-color: var(--main-fg-color);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 0 16px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+#close-modal{
+    margin-right: 5px;
+    background-color: white;
+    color: var(--main-fg-color);
+    transition: background 0.3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+#close-modal:hover{
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-overlay{ 
@@ -438,161 +638,3 @@ input:focus, button:focus{
     font-size: 12px;
     color: var(--main-text-color);
 }
-
-.modal-overlay{
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal{
-    background-color: white;
-    width: auto;
-    height: auto;
-    max-width: 250px;
-    margin: 15% auto;
-    padding: 15px;
-    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
-    animation: search-animation 0.4s forwards 0s cubic-bezier(0.4, 0.0, 0.2, 1);
-}
-
-.modal-close{
-    display: flex;
-    justify-content: flex-end;
-}
-
-.modal-close i{
-    color: var(--main-fg-color);
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.modal-header p{
-/*     color: var(--main-text-color); */
-    margin: 0;
-}
-.modal-content{
-    margin-top: 15px;
-}
-
-.input-field{
-    display: flex;
-    margin-bottom: 15px;
-}
-
-.input-field p{
-    width: 65px;
-    margin-right: 10px;
-    margin-bottom: 0;
-    margin-top: 0;
-    color: var(--main-text-color);
-}
-
-.dropdown{
-    position: relative;
-}
-
-#dropdown-trigger{
-    width: 120px;
-    cursor: pointer;
-    border: none;
-    border-radius: 3px;
-    padding: 5px 0;
-    text-align: center;
-    background-color: white;
-    color: var(--main-fg-color);
-    font-size: 1rem;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
-}
-.dropdown-content {
-    position: absolute;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 120px;
-    display: none;
-    background-color: white;
-    border-radius: 3px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
-}
-
-.dropdown-content li{
-    padding: 5px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
-}
-
-.dropdown-content li:last-child{
-    margin-bottom: 0;
-}
-
-.dropdown-content li:hover{
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-.modal-input{
-    width: 59%;
-    border: none;
-    border-radius: 0px;
-    border-bottom: 1px solid var(--main-fg-color);
-    padding-bottom: 3px;
-    font-size: 1rem;
-}
-
-.modal-input::placeholder{
-    color: var(--placeholder-text-color);
-    font-size: 1rem;
-}
-
-.modal-footer{
-    display: flex;
-    justify-content: flex-end;
-}
-
-.modal-footer button{
-    background-color: var(--main-fg-color);
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 5px 15px;
-    cursor: pointer;
-    margin-top: 5px;
-}
-
-.float-btn{
-    width: 56px;
-    height: 56px;
-    position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    background-color: var(--main-fg-color);
-    border-radius: 50%;
-    border: none;
-    padding: 15px;
-    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
-    transition: all 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
-    cursor: pointer;
-}
-
-.float-btn i{
-    color: white;
-    font-size: 1rem;
-    text-align: center;
-}
-
-.float-btn:hover{
-    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);
-}
-
-.float-btn:hover i{
-    font-size: 1rem;
-}
-

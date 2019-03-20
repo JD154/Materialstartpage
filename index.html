@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/main.css">
-<!--     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
     <title>Startpage</title>
 </head>
 
@@ -39,7 +39,7 @@
                  <p>Name to set:</p>
                  <input placeholder="Site name" type="text" name="name" id="get-name">
              </div>   
-            <div class="submit-form hover-opacity" id="send-data"><p>add</p></div>
+            <button class="submit-form hover-opacity" id="send-data">add</button>
         </form>
         <div class="form-spacer"></div>
         <div class="form-footer">
@@ -54,25 +54,25 @@
     </div>
     <div class="body-wrapper">
         <div class="box">
-            <h3 class="box-header">Development</h3>
+            <h3 class="box-header">Section 1</h3>
             <ul class="box-content" id="section1">
             </ul>
             <div class="add-button"><i id="dev-id" class="fas fa-plus-circle"></i></div>
         </div>
         <div class="box">
-            <h3 class="box-header">Reddit</h3>
+            <h3 class="box-header">Section 2</h3>
             <ul class="box-content" id="section2">
             </ul>
             <div class="add-button"><i id="reddit-id" class="fas fa-plus-circle"></i></div>
         </div> 
         <div class="box">
-            <h3 class="box-header">Social</h3>
+            <h3 class="box-header">Section 3</h3>
             <ul class="box-content" id="section3">
             </ul>
             <div class="add-button"><i id="social-id" class="fas fa-plus-circle"></i></div>
         </div>  
         <div class="box">
-            <h3 class="box-header">Others</h3>
+            <h3 class="box-header">Section 4</h3>
             <ul class="box-content" id="section4">
             </ul>
             <div class="add-button"><i id="others-id" class="fas fa-plus-circle"></i></div>
@@ -81,7 +81,6 @@
     <button id="modal-trigger" class="float-btn hover-opacity"><i class="fas fa-pen"></i></button>
     <div class="modal-overlay">
         <div class="modal">
-            <div class="modal-close"><i id="close-modal" class="fas fa-times"></i></div>
             <div class="modal-header">
                 <p>Edit sections name</p>
             </div>
@@ -100,6 +99,7 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <button id="close-modal">Cancel</button>
                 <button id="section-change" class="hover-opacity">Apply</button>
             </div>
         </div>
