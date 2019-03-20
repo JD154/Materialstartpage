@@ -156,7 +156,7 @@ input:focus, button:focus{
 }
 
 .search-input {
-    font-size: 14px;
+    font-size: 1rem;
     padding: 0 10px;
     width: 400px;
     height: 42px;
@@ -248,7 +248,7 @@ input:focus, button:focus{
 
 .input-wrapper p{
     margin: 0;
-    font-size: 14px;
+    font-size: 1rem;
     color: var(--main-text-color);
 }
 
@@ -262,7 +262,7 @@ input:focus, button:focus{
 .input-wrapper input::placeholder{
     color: var(--placeholder-text-color);
     font-family: var(--font-light);
-    font-size: 14px;
+    font-size: 1rem;
 }
 
 .submit-form{
@@ -293,7 +293,7 @@ input:focus, button:focus{
 }
 
 .form-footer p{
-    font-size: 14px;
+    font-size: 1rem;
     color: var(--main-text-color);
     text-align: center;
     margin: 4px;
@@ -339,7 +339,7 @@ input:focus, button:focus{
 }
 
 .box-header::after {
-    margin-left: 14px;
+    margin-left: 1rem;
     content: '';
     display: inline-block;
     vertical-align: middle;
@@ -367,7 +367,7 @@ input:focus, button:focus{
     width: 100%;
     text-decoration: none;
     color: var(--second-text-color);
-    font-size: 14px;
+    font-size: 1rem;
     padding-left: 10px;
 }
 
@@ -456,7 +456,7 @@ input:focus, button:focus{
     background-color: white;
     width: auto;
     height: auto;
-    max-width: 200px;
+    max-width: 250px;
     margin: 15% auto;
     padding: 15px;
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
@@ -500,14 +500,15 @@ input:focus, button:focus{
 }
 
 #dropdown-trigger{
-    height: 23px;
-    width: 95px;
+    width: 120px;
     cursor: pointer;
     border: none;
     border-radius: 3px;
+    padding: 5px 0;
     text-align: center;
     background-color: white;
     color: var(--main-fg-color);
+    font-size: 1rem;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
 }
 .dropdown-content {
@@ -515,7 +516,7 @@ input:focus, button:focus{
     list-style: none;
     margin: 0;
     padding: 0;
-    width: 95px;
+    width: 120px;
     display: none;
     background-color: white;
     border-radius: 3px;
@@ -538,16 +539,17 @@ input:focus, button:focus{
 }
 
 .modal-input{
-    width: 60%;
+    width: 59%;
     border: none;
     border-radius: 0px;
     border-bottom: 1px solid var(--main-fg-color);
     padding-bottom: 3px;
-    font-size: 14px;
+    font-size: 1rem;
 }
 
 .modal-input::placeholder{
     color: var(--placeholder-text-color);
+    font-size: 1rem;
 }
 
 .modal-footer{
@@ -582,7 +584,7 @@ input:focus, button:focus{
 
 .float-btn i{
     color: white;
-    font-size: 14px;
+    font-size: 1rem;
     text-align: center;
 }
 
@@ -591,6 +593,6 @@ input:focus, button:focus{
 }
 
 .float-btn:hover i{
-    font-size: 14px;
+    font-size: 1rem;
 }
 

@@ -1,6 +1,7 @@
 //create a variable to store name of id sections
 let setId = "";
 let selectedSection = "";
+let selectedIndex = "";
 let sectionsList = document.querySelectorAll(".box-header");
 
 // Add click event listener to each plus button in the page 
@@ -77,14 +78,9 @@ document.querySelector("#section-change").addEventListener('click', () => {
     
     if (nameToChange && selectedSection){
         let savedSections = JSON.parse(localStorage.getItem('savedSections'));
-
-        for (const i in savedSections) {
-            if (savedSections[i].sectionName == selectedSection) {
-                savedSections[i].sectionName = nameToChange;
-            } 
-    
-            localStorage.setItem('savedSections', JSON.stringify(savedSections));     // Save changes in Local Storage
-        }
+        
+        savedSections[selectedIndex].sectionName = nameToChange;
+        localStorage.setItem('savedSections', JSON.stringify(savedSections));     // Save changes in Local Storage
 
     }
     getSections();
@@ -205,6 +201,7 @@ function closeSideBar() {
     clearValues();
 }
 
+
 function getSections(){
     reprintSections();
     let list = [].slice.call(sectionsList);
@@ -220,6 +217,7 @@ function getSections(){
             document.querySelector("#page-sections").style.display = "none";
 
             selectedSection = liItem.innerHTML;
+            selectedIndex = i;
             document.querySelector("#dropdown-trigger").innerHTML = selectedSection;
             console.log("Section to edit: " + selectedSection);
         });
@@ -227,6 +225,7 @@ function getSections(){
         liItem.innerHTML = innerSections[i];
         document.querySelector("#page-sections").appendChild(liItem);
     }
+    console.log(selectedIndex);
 }
 
 function saveSections(sectionsArray){
