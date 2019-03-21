@@ -16,9 +16,6 @@ Add new web pages clicking the plus button on each section, also you can edit th
 
 [Try it!](https://material-startpage.herokuapp.com/)
 
-## Prerequisites
-You only need a browser.
-
 ## Built With
 
 * VScode.
