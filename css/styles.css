@@ -170,14 +170,15 @@ p{
     flex-direction: column;
     justify-content: center;
 }
-.nav-content p{
+.show-date{
     font-family: var(--font-light);
     color: var(--main-text-color);
     font-size: 0.8rem;
     animation: nav-animation 0.7s forwards 0s cubic-bezier(0.4, 0.0, 0.2, 1);
+    align-self: center;
 }
 
-.nav-content  h1 {
+.show-salute{
     font-family: var(--font-bold);
     color: var(--main-text-color);
     letter-spacing: 1px;
@@ -507,7 +508,7 @@ p{
     margin: 15% auto;
     padding: 15px;
     box-shadow: var(--modal-shadow);
-    animation: search-animation 0.4s forwards 0s cubic-bezier(0.4, 0.0, 0.2, 1);
+    animation: nav-animation 0.4s forwards 0s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .modal-header p{
