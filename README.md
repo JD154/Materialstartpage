@@ -33,10 +33,6 @@ Add new web pages clicking the plus button on each section, also you can edit th
 * v0.0.1
     * Work in progress.
 
-## Meta
-
-Jesus Blanco – [@jesus_blanco96](https://twitter.com/jesus_blanco96)
-
 ## License
 
 [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)
