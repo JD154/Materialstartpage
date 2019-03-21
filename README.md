@@ -8,6 +8,14 @@ Minimalist way to bookmark your favorites websites.
 
 This project come up because I wanted to add something more visual and at the same time improve my skills with CSS and JavaScript, components were made using material design guidelines. Everything done from scratch without dependences or third party plugins, just old good CSS and Javascript.
 
+## Usage example
+
+Add new web pages clicking the plus button on each section, also you can edit the section name clicking the float button.
+
+## Live Demo
+
+[Try it!](https://material-startpage.herokuapp.com/)
+
 ## Prerequisites
 You only need a browser.
 
@@ -16,14 +24,6 @@ You only need a browser.
 * VScode.
 * HTML, Vanilla CSS and vanilla JS.
 * Coffee.
-
-## Live Demo
-
-[Try it!](https://material-startpage.herokuapp.com/)
-
-## Usage example
-
-Add new web pages using plus button on each section, also you can edit the section name using the float button.
 
 ## Release History
 
@@ -39,4 +39,8 @@ Add new web pages using plus button on each section, also you can edit the secti
 ## Meta
 
 Jesus Blanco – [@jesus_blanco96](https://twitter.com/jesus_blanco96)
+
+## License
+
+[Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)
 
