@@ -136,6 +136,7 @@ input:focus, button:focus{
 button{
     height: 32px;
     font-size: 0.8rem;
+    font-family: var(--font-light);
 }
 
 p{
@@ -157,21 +158,34 @@ p{
     background: linear-gradient(90deg, rgba(148, 58, 180, 1) 0%, rgba(116, 95, 181, 1) 50%, rgba(148, 58, 180, 1) 100%);
     animation: header-animation 0.7s forwards 0s ease-in;
 }
+.nav-content-wrapper{
+    display: flex;
+    margin-top: 1rem;
+}
 
 .nav-content {
     height: 100%;
+    margin: 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+}
+.nav-content p{
+    font-family: var(--font-light);
+    color: var(--main-text-color);
+    font-size: 0.8rem;
+    animation: nav-animation 0.7s forwards 0s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .nav-content  h1 {
     font-family: var(--font-bold);
     color: var(--main-text-color);
+    letter-spacing: 1px;
     vertical-align: middle;
     font-size: 2em;
     animation: nav-animation 0.7s forwards 0s cubic-bezier(0.4, 0.0, 0.2, 1);
-    padding: 0 15px;
-    margin: 25px 0;
+    padding: 0;
+    margin: 5px 0;
 }
 
 .centered-bar {
@@ -296,9 +310,11 @@ p{
 
 .input-wrapper input{
     width: 100%;
-    padding-bottom: 3px;
+    height: 25px;
+    margin-top: 5px;
     border: none;
     border-bottom: 1px solid var(--main-fg-color);
+    color: var(--main-text-color);
 }
 
 .input-wrapper input::placeholder{
@@ -531,6 +547,7 @@ p{
     background-color: white;
     color: var(--main-fg-color);
     font-size: 1rem;
+    font-family: var(--font-light);
     transition: background-color 0.3s cubic-bezier(0.0, 0.0, 0.2, 1);
     box-shadow: var(--dropdown-shadow);
 }
@@ -548,6 +565,7 @@ p{
     display: none;
     background-color: white;
     border-radius: 3px;
+    font-family: var(--font-light);
     box-shadow: var(--dropdown-hover-shadow);
 }
 
@@ -573,6 +591,7 @@ p{
     border-bottom: 1px solid var(--main-fg-color);
     padding-bottom: 3px;
     font-size: 1rem;
+    color: var(--main-text-color);
 }
 
 .modal-input::placeholder{
