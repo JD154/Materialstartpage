@@ -1,10 +1,14 @@
 # Material Design Start Page
-> Keep your favorites webpages with stylish
+
 
 ![](Product_show.png)
 
-### Prerequisites
+## Description 
+Minimalist way to bookmark your favorites websites.
 
+This project come up because I wanted to add something more visual and at the same time improve my skills with CSS and JavaScript, components were made using material design guidelines. Everything done from scratch without dependences or third party plugins, just old good CSS and Javascript.
+
+## Prerequisites
 You only need a browser.
 
 ## Built With
@@ -12,9 +16,10 @@ You only need a browser.
 * VScode.
 * HTML, Vanilla CSS and vanilla JS.
 * Coffee.
+
 ## Live Demo
 
-[Try it](https://material-startpage.herokuapp.com/)
+[Try it!](https://material-startpage.herokuapp.com/)
 
 ## Usage example
 
