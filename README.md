@@ -22,7 +22,7 @@ Add new web pages clicking the plus button on each section, also you can edit th
 * HTML, Vanilla CSS and vanilla JS.
 * Coffee.
 
-## Release History
+## Version History
 
 * v1.0
     * [Functional release.](https://github.com/JD154/Materialstartpage/releases/tag/v1.0)
