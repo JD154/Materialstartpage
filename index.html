@@ -23,8 +23,9 @@
     <div class="centered-bar">
         <div class="form-wrap">
             <form class="search-form" method="get" action="https://duckduckgo.com/">
-                <input class='search-input' name='q' type='text' placeholder='Search something'/>
-                <button class='go-search hover-opacity' type='submit'><i class="fa fa-search standard-size"></i></button>
+                <input class='search-input' name='q' type='text' placeholder='Search something' />
+                <button class='go-search hover-opacity' type='submit'><i
+                        class="fa fa-search standard-size"></i></button>
             </form>
         </div>
     </div>
@@ -36,13 +37,13 @@
         <div class="sidebar-form">
             <p>New bookmark</p>
             <div class="input-wrapper">
-                <label class="floating-label">URL domain</label>
-                <input class="form-input" type="text" name="URL" id="get-url">
+                <label for="get-url" class="floating-label">URL domain</label>
+                <input class="form-input" type="text" id="get-url">
             </div>
-             <div class="input-wrapper">
-                 <label class="floating-label">Bookmark name</label>
-                 <input class="form-input" type="text" name="name" id="get-name">
-             </div>
+            <div class="input-wrapper">
+                <label for="get-name" class="floating-label">Bookmark name</label>
+                <input class="form-input" type="text" id="get-name">
+            </div>
             <button class="submit-form hover-opacity" id="send-data">add</button>
         </div>
         <div class="form-spacer"></div>
@@ -68,13 +69,13 @@
             <ul class="box-content" id="section2">
             </ul>
             <div class="add-button"><i id="reddit-id" class="fas fa-plus-circle"></i></div>
-        </div> 
+        </div>
         <div class="box">
             <h3 class="box-header">Section 3</h3>
             <ul class="box-content" id="section3">
             </ul>
             <div class="add-button"><i id="social-id" class="fas fa-plus-circle"></i></div>
-        </div>  
+        </div>
         <div class="box">
             <h3 class="box-header">Section 4</h3>
             <ul class="box-content" id="section4">
@@ -97,9 +98,9 @@
                     </div>
                 </div>
                 <div class="input-wrapper">
-                    <label class="floating-label">Replace with</label>
+                    <label for="modal-input" class="floating-label">Replace with</label>
                     <input id="modal-input" class="form-input" type="text">
-                </div>   
+                </div>
             </div>
             <div class="modal-footer">
                 <button id="close-modal">Cancel</button>
@@ -114,4 +115,5 @@
     <div class="sidebar-overlay"></div>
     <script src="js/scripts.js"></script>
 </body>
+
 </html>

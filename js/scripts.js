@@ -1,7 +1,7 @@
 //create a variable to store name of id sections
-let setId = "";
-let selectedSection = "";
-let selectedIndex = "";
+let setId;
+let selectedSection;
+let selectedIndex;
 let sectionsList = document.querySelectorAll(".box-header");
 
 // Add click event listener to each plus button in the page 
@@ -58,17 +58,17 @@ document.querySelector("#send-data").addEventListener('click', () => {
     } else {
         errorMessage();
     }
-    
+
     // Clear values 
     clearValues();
 });
 
+// Apply event listener to FAB for open modal
 document.querySelector("#modal-trigger").addEventListener('click', () => {
     document.querySelector(".modal-overlay").style.display = "block";
 
     document.querySelector("#dropdown-trigger").addEventListener('click', () => {
         document.querySelector("#page-sections").classList.add("dropdown-content-opened");
-
     });
 
     document.querySelector("#close-modal").addEventListener('click', () => {
@@ -208,94 +208,107 @@ function closeSideBar() {
 
 function getSections() {
     reprintSections();
-    let list = [].slice.call(sectionsList);
-    let innerSections = list.map(e => e.innerHTML);
+    let list = [].slice.call(sectionsList); // Take nodelist and push to an array
+    let innerSections = list.map(e => e.innerHTML); //From each object in array will take the innerHTML 
 
     saveSections(innerSections);
 
-    document.querySelectorAll("#page-sections > li").forEach(e => e.remove());
+    document.querySelectorAll("#page-sections > li").forEach(e => e.remove()); // Remove every li on the ul #page-sections
+
+    // Looping for each header section found
     for (const i in innerSections) {
         let liItem = document.createElement("li");
 
+        // If the li element is click will close the entire dropdown
         liItem.addEventListener('click', () => {
             document.querySelector("#page-sections").classList.remove("dropdown-content-opened");
 
-            selectedSection = liItem.innerHTML;
-            selectedIndex = i;
-            document.querySelector("#dropdown-trigger").innerHTML = selectedSection;
-            console.log("Section to edit: " + selectedSection);
+            selectedSection = liItem.innerHTML; // Take the innerHTML from the li and save it in a variable
+            selectedIndex = i; // Save the iteration value of the selected li
+            document.querySelector("#dropdown-trigger").innerHTML = selectedSection; //
         });
 
-        liItem.innerHTML = innerSections[i];
-        document.querySelector("#page-sections").appendChild(liItem);
+        liItem.innerHTML = innerSections[i]; // Save in innerHTML from li the element from the array
+        document.querySelector("#page-sections").appendChild(liItem); // Apprend li to the ul
     }
-    console.log(selectedIndex);
 }
 
+// Function to save each section header to Local Storage
 function saveSections(sectionsArray) {
     let saveSection;
     let savedSections = [];
 
-    if (localStorage.getItem('savedSections') === null) {
-        for (const i in sectionsArray) {
-            saveSection = {
-                sectionName: sectionsArray[i]
-            }
-            savedSections.push(saveSection);
-            localStorage.setItem('savedSections', JSON.stringify(savedSections));
+    // Array never will be empty so is not necessary to use if conditional to check if Local Storage is empty
+    for (const i in sectionsArray) {
+        saveSection = {
+            sectionName: sectionsArray[i] // Save each section header in a object
         }
+        savedSections.push(saveSection); // Put in an array of objects
+        localStorage.setItem('savedSections', JSON.stringify(savedSections)); // Save it in Local Storage
     }
+
 }
 
+// Function to get object in Local Storage and fill each section header
 function reprintSections() {
-    let savedSections = JSON.parse(localStorage.getItem('savedSections'));
+    let savedSections = JSON.parse(localStorage.getItem('savedSections')); // Get object list
+
+    // Apply text from array to innerHTML of each section header
     for (const i in savedSections) {
         sectionsList[i].innerHTML = savedSections[i].sectionName;
     }
 }
 
-function setDate(){
+function setDate() {
     // Initialize javascript date object
     let dateObject = new Date();
-    // Variables to get properly the date in text
-    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    // Const array variables to get properly the date in text
+    const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     // Search for elements to fill with date elements
     let dateParagraph = document.querySelector(".show-date");
     let timeOfDay = document.querySelector(".show-salute");
 
     // Fill paragraph element with date format
-    dateParagraph.innerHTML = days[dateObject.getDay()] + " " + dateObject.getDate() + " " + months[dateObject.getMonth()] + " " + dateObject.getFullYear();
+    dateParagraph.innerHTML = DAYS[dateObject.getDay()] + " " + dateObject.getDate() + " " + MONTHS[dateObject.getMonth()] + " " + dateObject.getFullYear();
+
+    // Get hours to make conditionals
     let hour = dateObject.getHours();
 
-    if (hour >= 6 && hour < 12){
+    if (hour >= 6 && hour < 12) {
         timeOfDay.innerHTML = "Good morning!";
-    } else if (hour >= 12 && hour < 19){
+    } else if (hour >= 12 && hour < 19) {
         timeOfDay.innerHTML = "Good afternoon!";
-    } else{
+    } else {
         timeOfDay.innerHTML = "Good night!";
     }
 }
-
-function animateFloatLabel(){
+// Give properly animation to float labels on inputs
+function animateFloatLabel() {
+    // Search for all inputs in page
     let inputs = document.querySelectorAll(".form-input");
 
+    // loop inside each one of inputs
     for (const KEY in inputs) {
-        let parent = inputs[KEY].parentElement;
-        let label = parent.querySelector(".floating-label");
+        let parent = inputs[KEY].parentElement; // Search for parent of the input
+        let label = parent.querySelector(".floating-label"); // Search for the label for the input
 
+        // Apply a focus listener 
         inputs[KEY].addEventListener('focus', () => {
             label.classList.add("label-focused");
             label.classList.add("label-color-focused");
         })
-        
+        // Apply a unfocus listener to the same element
         inputs[KEY].addEventListener('blur', () => {
             let inputValue = parent.querySelector(".form-input").value;
             label.classList.remove("label-color-focused");
-           if (inputValue == ""){
-            label.classList.remove("label-focused");
-           }
+
+            // If the input is empty will reset classes
+            if (inputValue == "") {
+                label.classList.remove("label-focused");
+            }
         })
     }
 }
