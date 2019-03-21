@@ -1,7 +1,7 @@
 # Material Design Start Page
 > Keep your favorites webpages with stylish
 
-![](product_show.jpg)
+![](product_show.png)
 
 ### Prerequisites
 
