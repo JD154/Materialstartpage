@@ -25,7 +25,7 @@ Add new web pages clicking the plus button on each section, also you can edit th
 ## Release History
 
 * v1.0
-    * Functional release.
+    * [Functional release.](https://github.com/JD154/Materialstartpage/releases/tag/v1.0)
 * v0.7.0
     * Added Local Storage to sections.
 * v0.5.0
