@@ -12,6 +12,9 @@ You only need a browser.
 * VScode.
 * HTML, Vanilla CSS and vanilla JS.
 * Coffee.
+## Live Demo
+
+[Try it](https://material-startpage.herokuapp.com/)
 
 ## Usage example
 
@@ -19,13 +22,13 @@ Add new web pages using plus button on each section, also you can edit the secti
 
 ## Release History
 
-* 0.1.0
+* v1.0
     * Functional release.
-* 0.0.7
+* v0.7.0
     * Added Local Storage to sections.
-* 0.0.5
+* v0.5.0
     * Added Local Storage to bookmarks.
-* 0.0.1
+* v0.0.1
     * Work in progress.
 
 ## Meta
