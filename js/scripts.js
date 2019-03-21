@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getSite();
     getSections();
     setDate();
+    animateFloatLabel();
 });
 
 
@@ -57,7 +58,7 @@ document.querySelector("#send-data").addEventListener('click', () => {
     } else {
         errorMessage();
     }
-
+    
     // Clear values 
     clearValues();
 });
@@ -66,16 +67,18 @@ document.querySelector("#modal-trigger").addEventListener('click', () => {
     document.querySelector(".modal-overlay").style.display = "block";
 
     document.querySelector("#dropdown-trigger").addEventListener('click', () => {
-        document.querySelector("#page-sections").style.display = "block";
+        document.querySelector("#page-sections").classList.add("dropdown-content-opened");
+
     });
 
     document.querySelector("#close-modal").addEventListener('click', () => {
         document.querySelector(".modal-overlay").style.display = "none";
+        document.querySelector("#dropdown-trigger").innerHTML = "Select section";
     });
 });
 
 document.querySelector("#section-change").addEventListener('click', () => {
-    let nameToChange = document.querySelector(".modal-input").value;
+    let nameToChange = document.querySelector("#modal-input").value;
 
     if (nameToChange && selectedSection) {
         let savedSections = JSON.parse(localStorage.getItem('savedSections'));
@@ -86,7 +89,7 @@ document.querySelector("#section-change").addEventListener('click', () => {
     }
     getSections();
     document.querySelector(".modal-overlay").style.display = "none";
-    document.querySelector(".modal-input").value = "";
+    document.querySelector("#modal-input").value = "";
     document.querySelector("#dropdown-trigger").innerHTML = "Select section";
 });
 
@@ -215,7 +218,7 @@ function getSections() {
         let liItem = document.createElement("li");
 
         liItem.addEventListener('click', () => {
-            document.querySelector("#page-sections").style.display = "none";
+            document.querySelector("#page-sections").classList.remove("dropdown-content-opened");
 
             selectedSection = liItem.innerHTML;
             selectedIndex = i;
@@ -264,15 +267,35 @@ function setDate(){
 
     // Fill paragraph element with date format
     dateParagraph.innerHTML = days[dateObject.getDay()] + " " + dateObject.getDate() + " " + months[dateObject.getMonth()] + " " + dateObject.getFullYear();
-
     let hour = dateObject.getHours();
 
-    if (hour > 6 && hour < 12){
+    if (hour >= 6 && hour < 12){
         timeOfDay.innerHTML = "Good morning!";
-    } else if (hour > 12 && hour < 19){
+    } else if (hour >= 12 && hour < 19){
         timeOfDay.innerHTML = "Good afternoon!";
     } else{
         timeOfDay.innerHTML = "Good night!";
     }
+}
 
+function animateFloatLabel(){
+    let inputs = document.querySelectorAll(".form-input");
+
+    for (const KEY in inputs) {
+        let parent = inputs[KEY].parentElement;
+        let label = parent.querySelector(".floating-label");
+
+        inputs[KEY].addEventListener('focus', () => {
+            label.classList.add("label-focused");
+            label.classList.add("label-color-focused");
+        })
+        
+        inputs[KEY].addEventListener('blur', () => {
+            let inputValue = parent.querySelector(".form-input").value;
+            label.classList.remove("label-color-focused");
+           if (inputValue == ""){
+            label.classList.remove("label-focused");
+           }
+        })
+    }
 }

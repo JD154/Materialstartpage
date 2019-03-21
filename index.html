@@ -34,14 +34,15 @@
             <p>You can't leave empty fields</p>
         </div>
         <div class="sidebar-form">
+            <p>New bookmark</p>
             <div class="input-wrapper">
-                <p>URL to set:</p>
-                <input placeholder="https://sitename.com" type="text" name="URL" id="get-url">
+                <label class="floating-label">URL domain</label>
+                <input class="form-input" type="text" name="URL" id="get-url">
             </div>
              <div class="input-wrapper">
-                 <p>Name to set:</p>
-                 <input placeholder="Site name" type="text" name="name" id="get-name">
-             </div>   
+                 <label class="floating-label">Bookmark name</label>
+                 <input class="form-input" type="text" name="name" id="get-name">
+             </div>
             <button class="submit-form hover-opacity" id="send-data">add</button>
         </div>
         <div class="form-spacer"></div>
@@ -85,21 +86,20 @@
     <div class="modal-overlay">
         <div class="modal">
             <div class="modal-header">
-                <p>Edit sections name</p>
+                <p>Edit section</p>
             </div>
             <div class="modal-content">
-                <div class="input-field">
-                    <p>Section:</p>
+                <div class="input-wrapper">
                     <div class="dropdown">
                         <button id="dropdown-trigger">Select section</button>
                         <ul id="page-sections" class="dropdown-content">
                         </ul>
                     </div>
                 </div>
-                <div class="input-field">
-                    <p>Rename to:</p>
-                    <input type="text" class="modal-input" placeholder="Section name">
-                </div>
+                <div class="input-wrapper">
+                    <label class="floating-label">Replace with</label>
+                    <input id="modal-input" class="form-input" type="text">
+                </div>   
             </div>
             <div class="modal-footer">
                 <button id="close-modal">Cancel</button>
