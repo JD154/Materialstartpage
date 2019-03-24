@@ -328,8 +328,9 @@ button {
     border-top-left-radius: var(--main-border-radius);
     border-top-right-radius: var(--main-border-radius);
     border: none;
-    font-family: var(--font-regular);
     background-color: #f5f5f5;
+    font-family: var(--font-regular);
+    font-size: 1rem;
     -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.42);
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.42);
     -webkit-transition: background .18s cubic-bezier(.4, 0, .2, 1), -webkit-box-shadow .18s cubic-bezier(.4, 0, .2, 1);
