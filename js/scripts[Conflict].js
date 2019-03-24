@@ -29,16 +29,16 @@ document.querySelector("#others-id").addEventListener('click', () => {
     console.log("ID = " + setId);
 });
 
+
+// When load will check if fetched array from localStorage is not empty
 document.addEventListener('DOMContentLoaded', () => {
     getSite();
     getSections();
     setDate();
-    rippleEffect();
+    rippleEffect(); 
     animateFloatLabel();
 });
 
-// Assign click event listener to X button on the side bar 
-document.querySelector("#close-sidebar").addEventListener('click', closeSideBar);
 
 // Function to get data from input fields when user press the pencil button on side bar 
 document.querySelector("#send-data").addEventListener('click', () => {
@@ -66,26 +66,15 @@ document.querySelector("#send-data").addEventListener('click', () => {
 
 // Apply event listener to FAB for open modal
 document.querySelector("#modal-trigger").addEventListener('click', () => {
-    document.querySelector(".modal-overlay").style.display = "block"; // show modal
+    document.querySelector(".modal-overlay").style.display = "block";
 
-    // if dropdown button is clicked will show list
     document.querySelector("#dropdown-trigger").addEventListener('click', () => {
         document.querySelector("#page-sections").classList.add("dropdown-content-opened");
     });
 
-    // if cancel button is clicked will hide modal
     document.querySelector("#close-modal").addEventListener('click', () => {
         document.querySelector(".modal-overlay").style.display = "none";
         document.querySelector("#dropdown-trigger").innerHTML = "Select section";
-        checkIfDropdownIsOpen();
-    });
-
-    document.querySelector(".modal-overlay").addEventListener('click', (e) => {
-        if (e.target == document.querySelector(".modal-overlay")) {
-            document.querySelector(".modal-overlay").style.display = "none";
-            document.querySelector("#dropdown-trigger").innerHTML = "Select section";
-            checkIfDropdownIsOpen();
-        }
     });
 });
 
@@ -148,7 +137,7 @@ function saveSite(urlName, domainName, setId) {
 // Function to add fetched data from LocalStorage into HTML
 function appendSite(urlName, domainName, set_id) {
     let li = document.createElement("li"); // Create a li element
-    li.className = "ripple ripple-dark content-link"; // Assign the appropiate class name to li
+    li.className = "content-link"; // Assign the appropiate class name to li
 
     let anchor = document.createElement('a'); // Create a anchor element
     anchor.setAttribute('href', urlName); // Use data from input field to set an href url
@@ -163,7 +152,6 @@ function appendSite(urlName, domainName, set_id) {
 
     let element = document.querySelector(set_id); // Search for appropiate section with the id provided
     element.appendChild(li); // Append created li to the appropiate section
-    rippleEffect();
 }
 
 // Function to search for anchor content and delete entire object from LocalStorage
@@ -184,6 +172,41 @@ function deleteSite() {
     }
 }
 
+// Assign click event listener to X button on the side bar 
+document.querySelector("#close-sidebar").addEventListener('click', closeSideBar);
+
+// When an input field is empty and submit an error message will be displayed
+function errorMessage() {
+    document.querySelector(".form-error").classList.add('form-error-isvisible');
+
+    setTimeout(() => {
+        document.querySelector(".form-error").classList.remove('form-error-isvisible');
+    }, 1500);
+}
+
+// Function to clear values on inputs
+function clearValues() {
+    document.querySelector("#get-url").value = "";
+    document.querySelector("#get-name").value = "";
+
+    console.log("values cleared!");
+}
+
+// Function to set styles and make side bar visible 
+function openSideBar() {
+    document.querySelector(".sidenav").classList.add('sidenav-isvisible');
+    document.querySelector(".sidebar-overlay").classList.add('overlay-isvisible');
+    document.querySelector(".sidebar-overlay").addEventListener('click', closeSideBar);
+}
+
+// Function to set styles and make side bar invisible
+function closeSideBar() {
+    document.querySelector(".sidenav").classList.remove('sidenav-isvisible');
+    document.querySelector(".sidebar-overlay").classList.remove('overlay-isvisible');
+    clearValues();
+}
+
+
 function getSections() {
     reprintSections();
     let list = [].slice.call(sectionsList); // Take nodelist and push to an array
@@ -196,11 +219,11 @@ function getSections() {
     // Looping for each header section found
     for (const i in innerSections) {
         let liItem = document.createElement("li");
-        liItem.className = "ripple ripple-dark hover-dark";
 
         // If the li element is click will close the entire dropdown
-        liItem.addEventListener('click', (e) => {
+        liItem.addEventListener('click', () => {
             document.querySelector("#page-sections").classList.remove("dropdown-content-opened");
+
             selectedSection = liItem.innerHTML; // Take the innerHTML from the li and save it in a variable
             selectedIndex = i; // Save the iteration value of the selected li
             document.querySelector("#dropdown-trigger").innerHTML = selectedSection; //
@@ -209,7 +232,6 @@ function getSections() {
         liItem.innerHTML = innerSections[i]; // Save in innerHTML from li the element from the array
         document.querySelector("#page-sections").appendChild(liItem); // Apprend li to the ul
     }
-    rippleEffect();
 }
 
 // Function to save each section header to Local Storage
@@ -238,9 +260,6 @@ function reprintSections() {
     }
 }
 
-/* Interactive DOM functions for effects and animations */
-
-// Interact with DOM to show salute message and date
 function setDate() {
     // Initialize javascript date object
     let dateObject = new Date();
@@ -267,111 +286,57 @@ function setDate() {
         timeOfDay.innerHTML = "Good night!";
     }
 }
-
 // Give properly animation to float labels on inputs
 function animateFloatLabel() {
     // Search for all inputs in page
     let inputs = document.querySelectorAll(".form-input");
 
     // loop inside each one of inputs
-    for (const e in inputs) {
-        let target = inputs[e];
-        let inputWrapper = target.parentNode; // Search for parent of the input
-        console.log(inputWrapper);
-        let label = inputWrapper.querySelector(".floating-label"); // Search for the label for the input
+    for (const i in inputs) {
+        let parent = inputs[i].parentElement; // Search for parent of the input
+        let label = parent.querySelector(".floating-label"); // Search for the label for the input
 
         // Apply a focus listener 
-        target.addEventListener('focus', () => {
+        inputs[i].onfocus = () => {
             label.classList.add("label-focused");
             label.classList.add("label-color-focused");
-        });
-
+        };
         // Apply a unfocus listener to the same element
-        target.addEventListener('blur', () => {
-            let inputValue = inputWrapper.querySelector(".form-input").value;
+        inputs[i].onblur = () => {
+            let inputValue = parent.querySelector(".form-input").value;
             label.classList.remove("label-color-focused");
 
             // If the input is empty will reset classes
             if (inputValue == "") {
                 label.classList.remove("label-focused");
             }
-        });
+        };
     }
 }
 
-function rippleEffect() {
-    let rippleElements = document.querySelectorAll(".ripple"); // Search for ripple classes applied
-    rippleElements.forEach(e => e.onmousedown = null); // Remove every listener if already has been applied
+function rippleEffect(){
 
-    // add a listener to each element with ripple class
+    if (document.querySelectorAll(".ripple-effect")){
+        document.querySelectorAll(".ripple-effect").forEach(e => e.remove());
+    }
+    
+    let rippleElements = document.querySelectorAll(".ripple");
     for (const i in rippleElements) {
-        let target = rippleElements[i];
-        target.onmousedown = (e) => {
-
-            let offset = rippleElements[i].getBoundingClientRect(); // Get position relative to the viewport
-
-            //calculate where has been clicked
-            let X = e.clientX - offset.left; 
-            let Y = e.clientY - offset.top;
+        rippleElements[i].onmousedown = (e) => {
+            console.log("clicking");
+            let X = e.pageX - rippleElements[i].offsetLeft;
+            let Y = e.pageY - rippleElements[i].offsetTop;
 
             let rippleSpan = document.createElement("span");
-            rippleSpan.classList.add("ripple-effect");  
-            rippleSpan.setAttribute("style", "top:" + Y + "px; left:" + X + "px;");
-
-            // If the ripple class have ripple-dark added too will apply dark background, if not white
-            if (rippleElements[i].classList.contains("ripple-dark")) {
-                rippleSpan.style.background = "#000";
-            } else {
-                rippleSpan.style.background = "#fff";
-            }
+            rippleSpan.classList.add("ripple-effect");
+            rippleSpan.setAttribute("style","top:"+Y+"px; left:"+X+"px;");
 
             rippleElements[i].appendChild(rippleSpan);
 
-            setTimeout(() => {
-                rippleSpan.parentNode.removeChild(rippleSpan);
-            }, 900);
+            rippleElements[i].onclick = () => {
+                rippleSpan.parentElement.removeChild(rippleSpan);
+            };
         };
-
+        
     }
 }
-
-/* Secondary functions made for open/close/hide  */
-
-// Function to clear values on inputs
-function clearValues() {
-    document.querySelector("#get-url").value = "";
-    document.querySelector("#get-name").value = "";
-
-    console.log("values cleared!");
-}
-
-// Function to set styles and make side bar visible 
-function openSideBar() {
-    document.querySelector(".sidenav").classList.add('sidenav-isvisible');
-    document.querySelector(".sidebar-overlay").classList.add('overlay-isvisible');
-    document.querySelector(".sidebar-overlay").addEventListener('click', closeSideBar);
-}
-
-// When an input field is empty and submit an error message will be displayed
-function errorMessage() {
-    document.querySelector(".form-error").classList.add('form-error-isvisible');
-
-    setTimeout(() => {
-        document.querySelector(".form-error").classList.remove('form-error-isvisible');
-    }, 1500);
-}
-
-// Function to set styles and make side bar invisible
-function closeSideBar() {
-    document.querySelector(".sidenav").classList.remove('sidenav-isvisible');
-    document.querySelector(".sidebar-overlay").classList.remove('overlay-isvisible');
-    clearValues();
-}
-
-// If the dropdown list is open will close it
-function checkIfDropdownIsOpen() {
-    if (document.querySelector(".dropdown-content-opened")) {
-        document.querySelector("#page-sections").classList.remove("dropdown-content-opened");
-    }
-}
-

@@ -23,14 +23,14 @@
     <div class="centered-bar">
         <div class="form-wrap">
             <form class="search-form" method="get" action="https://duckduckgo.com/">
-                <input class='search-input' name='q' type='text' placeholder='Search something' />
-                <button class='go-search hover-opacity' type='submit'><i
-                        class="fa fa-search standard-size"></i></button>
+                <input class='search-input hover' name='q' type='text' placeholder='Search something' />
+                <button class='go-search hover-dark' type='submit'><i
+                        class="fa fa-search"></i></button>
             </form>
         </div>
     </div>
     <div class="sidenav">
-        <i id="close-sidebar" class="fas fa-times closebtn hover-opacity standard-size"></i>
+        <i id="close-sidebar" class="fas fa-times closebtn hover-light"></i>
         <div class="form-error">
             <p>You can't leave empty fields</p>
         </div>
@@ -38,22 +38,22 @@
             <p>New bookmark</p>
             <div class="input-wrapper">
                 <label for="get-url" class="floating-label">URL domain</label>
-                <input class="form-input" type="text" id="get-url">
+                <input class="form-input hover-dark" type="text" id="get-url">
             </div>
             <div class="input-wrapper">
                 <label for="get-name" class="floating-label">Bookmark name</label>
-                <input class="form-input" type="text" id="get-name">
+                <input class="form-input hover-dark" type="text" id="get-name">
             </div>
-            <button class="submit-form hover-opacity" id="send-data">add</button>
+            <button class="ripple submit-form hover-light" id="send-data">add</button>
         </div>
         <div class="form-spacer"></div>
         <div class="form-footer">
             <p>Visit my others projects</p>
             <div class="my-sites">
-                <a href="https://jdesigndev.xyz/"><i class="fas fa-home hover-opacity"></i></a>
-                <a href="https://github.com/JD154/"><i class="fab fa-github hover-opacity"></i></a>
-                <a href="https://twitter.com/jesus_blanco96"><i class="fab fa-twitter hover-opacity"></i></a>
-                <a href="https://www.instagram.com/jesus_blanco96/"><i class="fab fa-instagram hover-opacity"></i></a>
+                <a href="https://jdesigndev.xyz/"><i class="fas fa-home hover-icon"></i></a>
+                <a href="https://github.com/JD154/"><i class="fab fa-github hover-icon"></i></a>
+                <a href="https://twitter.com/jesus_blanco96"><i class="fab fa-twitter hover-icon"></i></a>
+                <a href="https://www.instagram.com/jesus_blanco96/"><i class="fab fa-instagram hover-icon"></i></a>
             </div>
         </div>
     </div>
@@ -83,7 +83,7 @@
             <div class="add-button"><i id="others-id" class="fas fa-plus-circle"></i></div>
         </div>
     </div>
-    <button id="modal-trigger" class="float-btn hover-opacity"><i class="fas fa-pen"></i></button>
+    <button id="modal-trigger" class="ripple float-btn hover-light"><i class="fas fa-pen"></i></button>
     <div class="modal-overlay">
         <div class="modal">
             <div class="modal-header">
@@ -92,19 +92,19 @@
             <div class="modal-content">
                 <div class="input-wrapper">
                     <div class="dropdown">
-                        <button id="dropdown-trigger">Select section</button>
+                        <button id="dropdown-trigger" class="ripple ripple-dark hover-dark">Select section</button>
                         <ul id="page-sections" class="dropdown-content">
                         </ul>
                     </div>
                 </div>
                 <div class="input-wrapper">
                     <label for="modal-input" class="floating-label">Replace with</label>
-                    <input id="modal-input" class="form-input" type="text">
+                    <input id="modal-input" class="form-input hover-dark" type="text">
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close-modal">Cancel</button>
-                <button id="section-change" class="hover-opacity">Apply</button>
+                <button id="close-modal" class="ripple ripple-dark hover-dark">Cancel</button>
+                <button id="section-change" class="ripple hover-light">Apply</button>
             </div>
         </div>
     </div>
