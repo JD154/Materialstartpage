@@ -821,7 +821,7 @@ button:focus {
 .modal-header p {
     color: var(--main-text-color);
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 15px;
 }
 
