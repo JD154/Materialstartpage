@@ -251,12 +251,6 @@ button:focus {
     outline-width: 0;
 }
 
-.page-spacer {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-}
-
 .hover-light{
     -webkit-transition: opacity 0.3s cubic-bezier(0.0, 0.0, 0.2, 1);
     transition: opacity 0.3s cubic-bezier(0.0, 0.0, 0.2, 1);
@@ -655,6 +649,9 @@ button:focus {
     -webkit-box-align: start;
     -ms-flex-align: start;
     align-items: start;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
 }
 
 @media only screen and (max-width: 850px) {
