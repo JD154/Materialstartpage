@@ -30,6 +30,7 @@ document.querySelector("#others-id").addEventListener('click', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    clearSearchInput();
     getSite();
     getSections();
     setDate();
@@ -341,8 +342,12 @@ function rippleEffect() {
 function clearValues() {
     document.querySelector("#get-url").value = "";
     document.querySelector("#get-name").value = "";
+}
 
-    console.log("values cleared!");
+function clearSearchInput(){
+    if(document.querySelector(".search-input")){
+        this.value = " ";
+    }
 }
 
 // Function to set styles and make side bar visible 

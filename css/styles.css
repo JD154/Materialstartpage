@@ -448,22 +448,23 @@ button:focus {
 }
 
 .search-form {
-    width: 100%;
+    width: auto;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-shadow: var(--main-box-shadow);
     box-shadow: var(--main-box-shadow);
     background-color: white;
-    border: 3px solid white;
+    border: none;
     border-radius: var(--main-border-radius);
 }
 
 .search-input {
     font-size: 1rem;
-    padding: 0 10px;
+    padding: 5px 15px;
     width: 400px;
     height: 42px;
+    border-radius: var(--main-border-radius);
     border: none;
 }
 
@@ -492,13 +493,12 @@ button:focus {
 }
 
 .go-search {
-    height: 42px;
-    margin: 0;
-    padding: 0;
-    width: 30px;
-    border: none;
+    height: auto;
+    padding: 0 15px;
     color: var(--main-fg-color);
-    background-color: transparent;
+    background-color: white;
+    border: none;
+    border-radius: var(--main-border-radius);
 }
 
 .go-search i {
