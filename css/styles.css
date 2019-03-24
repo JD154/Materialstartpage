@@ -236,15 +236,25 @@ body {
     overflow-x: hidden;
 }
 
-.page-spacer {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
+p {
+    font-size: 1rem;
+}
+
+button {
+    height: 32px;
+    font-size: 0.9rem;
+    font-family: var(--font-light);
 }
 
 input:focus,
 button:focus {
     outline-width: 0;
+}
+
+.page-spacer {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
 }
 
 .hover-light{
@@ -275,12 +285,6 @@ button:focus {
 .hover-icon:hover{
     opacity: 0.5;
     cursor: pointer;
-}
-
-button {
-    height: 32px;
-    font-size: 0.9rem;
-    font-family: var(--font-light);
 }
 
 .input-wrapper {
@@ -345,10 +349,6 @@ button {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-p {
-    font-size: 1rem;
-}
-
 .ripple{
     overflow: hidden;
     position: relative;
@@ -365,6 +365,7 @@ p {
     pointer-events: none;
     border-radius: 50%;
 }
+
 /* End global selectors */
 
 .nav-main-wrapper {
@@ -577,7 +578,7 @@ p {
 }
 
 .sidebar-form {
-    padding: 0px 20px;
+    padding: 10px 20px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -618,7 +619,7 @@ p {
 
 .form-footer {
     width: 250px;
-    margin-bottom: 65px;
+    margin-bottom: 60px;
 }
 
 .form-footer p {
@@ -626,7 +627,7 @@ p {
     font-family: var(--font-light);
     color: var(--main-text-color);
     text-align: center;
-    margin: 4px;
+    margin-bottom: 5px;
 }
 
 .my-sites {
