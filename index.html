@@ -31,10 +31,10 @@
     <div class="sidenav">
         <i id="close-sidebar" class="fas fa-times closebtn hover-light"></i>
         <div class="form-error">
-            <p>You can't leave empty fields</p>
+            <p class="form-error-title">You can't leave empty fields</p>
         </div>
         <div class="sidebar-form">
-            <p>New bookmark</p>
+            <p class="sidebar-form-title">New bookmark</p>
             <div class="input-wrapper">
                 <label for="get-url" class="floating-label">URL domain</label>
                 <input class="form-input hover-dark" type="text" id="get-url">
@@ -47,12 +47,12 @@
         </div>
         <div class="form-spacer"></div>
         <div class="form-footer">
-            <p>Follow me in social media</p>
+            <p class="form-footer-title">Follow me in social media</p>
             <div class="my-sites">
-                <a href="https://jdesigndev.xyz/"><i class="fas fa-home hover-icon"></i></a>
-                <a href="https://github.com/JD154/"><i class="fab fa-github hover-icon"></i></a>
-                <a href="https://twitter.com/jesus_blanco96"><i class="fab fa-twitter hover-icon"></i></a>
-                <a href="https://www.instagram.com/jesus_blanco96/"><i class="fab fa-instagram hover-icon"></i></a>
+                <a href="https://jdesigndev.xyz/"><i class="icon-site fas fa-home hover-icon"></i></a>
+                <a href="https://github.com/JD154/"><i class="icon-site fab fa-github hover-icon"></i></a>
+                <a href="https://twitter.com/jesus_blanco96"><i class="icon-site fab fa-twitter hover-icon"></i></a>
+                <a href="https://www.instagram.com/jesus_blanco96/"><i class="icon-site fab fa-instagram hover-icon"></i></a>
             </div>
         </div>
     </div>
@@ -86,14 +86,13 @@
     <div class="modal-overlay">
         <div class="modal">
             <div class="modal-header">
-                <p>Edit section</p>
+                <p class="modal-title">Edit section</p>
             </div>
             <div class="modal-content">
                 <div class="input-wrapper">
                     <div class="dropdown">
-                        <button id="dropdown-trigger" class="ripple ripple-dark hover-dark">Select section</button>
-                        <ul id="page-sections" class="dropdown-content">
-                        </ul>
+                        <button id="dropdown-trigger" class="dropdown-btn ripple ripple-dark hover-dark">Select section</button>
+                        <ul id="page-sections" class="dropdown-content"></ul>
                     </div>
                 </div>
                 <div class="input-wrapper">
@@ -102,13 +101,13 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close-modal" class="ripple ripple-dark hover-dark">Cancel</button>
-                <button id="section-change" class="ripple hover-light">Apply</button>
+                <button id="close-modal" class="modal-btn btn-flat ripple ripple-dark hover-dark">Cancel</button>
+                <button id="section-change" class="modal-btn ripple hover-light">Apply</button>
             </div>
         </div>
     </div>
     <footer class="footer-wrap">
-        <p>Made with <i id="heart" class="fas fa-heart"></i> by Jesus Blanco</p>
+        <p class="footer-content">Made with <i id="heart" class="fas fa-heart"></i> by Jesus Blanco</p>
     </footer>
     <div class="sidebar-overlay"></div>
     <script src="js/scripts.js"></script>

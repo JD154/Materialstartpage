@@ -556,7 +556,7 @@ button:focus {
     transition: height 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-.form-error p {
+.form-error-title {
     display: none;
 }
 
@@ -564,7 +564,7 @@ button:focus {
     height: 28px;
 }
 
-.form-error-isvisible p {
+.form-error-isvisible .form-error-title {
     display: initial;
     margin: 5px 0;
     color: white;
@@ -585,7 +585,7 @@ button:focus {
     justify-content: center;
 }
 
-.sidebar-form p {
+.sidebar-form-title {
     color: var(--main-text-color);
     margin-bottom: 10px;
 }
@@ -616,7 +616,7 @@ button:focus {
     margin-bottom: 60px;
 }
 
-.form-footer p {
+.form-footer-title {
     font-size: 0.8rem;
     font-family: var(--font-light);
     color: var(--main-text-color);
@@ -628,12 +628,12 @@ button:focus {
     text-align: center;
 }
 
-.my-sites a {
+.icon-site {
     color: var(--main-text-color);
     padding-left: 5px;
 }
 
-.my-sites a i{
+.icon-site i{
     font-size: 1.1rem;
 }
 
@@ -815,7 +815,7 @@ button:focus {
     animation: nav-animation 0.4s forwards 0s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-.modal-header p {
+.modal-title {
     color: var(--main-text-color);
     margin: 0;
     font-size: 1rem;
@@ -830,7 +830,7 @@ button:focus {
     position: relative;
 }
 
-#dropdown-trigger {
+.dropdown-btn {
     width: 210px;
     height: 40px;
     cursor: pointer;
@@ -903,7 +903,7 @@ button:focus {
     justify-content: flex-end;
 }
 
-.modal-footer button {
+.modal-btn {
     background-color: var(--main-fg-color);
     color: white;
     border: none;
@@ -913,7 +913,7 @@ button:focus {
     margin-top: 5px;
 }
 
-#close-modal {
+.btn-flat {
     margin-right: 5px;
     border: var(--main-border-radius);
     background-color: white;
@@ -955,12 +955,9 @@ button:focus {
     animation: heart-animation 0.7s forwards 0s cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
-.footer-wrap p,
-.footer-wrap a {
-    text-decoration: none;
+.footer-content {
     margin-bottom: 5px;
-    font-size: 12px;
+    font-size: 0.7rem;
     color: var(--main-text-color);
-    font-family: var(--font-light);
 }
 

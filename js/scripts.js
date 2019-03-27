@@ -312,11 +312,11 @@ function rippleEffect() {
             let offset = rippleElements[i].getBoundingClientRect(); // Get position relative to the viewport
 
             //calculate where has been clicked
-            let X = e.clientX - offset.left; 
+            let X = e.clientX - offset.left;
             let Y = e.clientY - offset.top;
 
             let rippleSpan = document.createElement("span");
-            rippleSpan.classList.add("ripple-effect");  
+            rippleSpan.classList.add("ripple-effect");
             rippleSpan.setAttribute("style", "top:" + Y + "px; left:" + X + "px;");
 
             // If the ripple class have ripple-dark added too will apply dark background, if not white
@@ -344,8 +344,8 @@ function clearValues() {
     document.querySelector("#get-name").value = "";
 }
 
-function clearSearchInput(){
-    if(document.querySelector(".search-input")){
+function clearSearchInput() {
+    if (document.querySelector(".search-input")) {
         this.value = " ";
     }
 }
@@ -379,4 +379,3 @@ function checkIfDropdownIsOpen() {
         document.querySelector("#page-sections").classList.remove("dropdown-content-opened");
     }
 }
-
