@@ -4,31 +4,6 @@ let selectedSection;
 let selectedIndex;
 let sectionsList = document.querySelectorAll(".box-header");
 
-// Add click event listener to each plus button in the page 
-document.querySelector("#dev-id").addEventListener('click', () => {
-    openSideBar(); // Call function to open side bar 
-    setId = "#section1"; // Set the appropriate name to id variable
-    console.log("ID = " + setId); //Verifies in console if the name is correct
-});
-
-document.querySelector("#reddit-id").addEventListener('click', () => {
-    openSideBar();
-    setId = "#section2";
-    console.log("ID = " + setId);
-});
-
-document.querySelector("#social-id").addEventListener('click', () => {
-    openSideBar();
-    setId = "#section3";
-    console.log("ID = " + setId);
-});
-
-document.querySelector("#others-id").addEventListener('click', () => {
-    openSideBar();
-    setId = "#section4";
-    console.log("ID = " + setId);
-});
-
 document.addEventListener('DOMContentLoaded', () => {
     clearSearchInput();
     getSite();
@@ -36,6 +11,27 @@ document.addEventListener('DOMContentLoaded', () => {
     setDate();
     rippleEffect();
     animateFloatLabel();
+});
+
+// Add click event listener to each plus button in the page 
+document.querySelector("#dev-id").addEventListener('click', () => {
+    openSideBar(); // Call function to open side bar 
+    setId = "#section1"; // Set the appropriate name to id variable
+});
+
+document.querySelector("#reddit-id").addEventListener('click', () => {
+    openSideBar();
+    setId = "#section2";
+});
+
+document.querySelector("#social-id").addEventListener('click', () => {
+    openSideBar();
+    setId = "#section3";
+});
+
+document.querySelector("#others-id").addEventListener('click', () => {
+    openSideBar();
+    setId = "#section4";
 });
 
 // Assign click event listener to X button on the side bar 
@@ -48,11 +44,7 @@ document.querySelector("#send-data").addEventListener('click', () => {
     let urlName = document.querySelector("#get-url").value;
     let domainName = document.querySelector("#get-name").value;
 
-    // Check in console each value before final set 
-    console.log("Domain url = " + urlName);
-    console.log("Domain name = " + domainName);
-    console.log("ID to append = " + setId);
-
+    // Call functions if both inputs are filled, otherwise will show an error
     if (urlName && domainName) {
         saveSite(urlName, domainName, setId); // Call function to save data in Local Storage
         appendSite(urlName, domainName, setId); // Call function to append data into the HTML
@@ -61,8 +53,7 @@ document.querySelector("#send-data").addEventListener('click', () => {
         errorMessage();
     }
 
-    // Clear values 
-    clearValues();
+    clearValues(); // Clear values 
 });
 
 // Apply event listener to FAB for open modal
@@ -81,6 +72,7 @@ document.querySelector("#modal-trigger").addEventListener('click', () => {
         checkIfDropdownIsOpen();
     });
 
+    // hide modal if clicked outside of the box
     document.querySelector(".modal-overlay").addEventListener('click', (e) => {
         if (e.target == document.querySelector(".modal-overlay")) {
             document.querySelector(".modal-overlay").style.display = "none";
@@ -90,16 +82,17 @@ document.querySelector("#modal-trigger").addEventListener('click', () => {
     });
 });
 
+// Event Listener for apply button in modal
 document.querySelector("#section-change").addEventListener('click', () => {
     let nameToChange = document.querySelector("#modal-input").value;
 
+    // Apply changes if dropdown selection and input is not empty
     if (nameToChange && selectedSection) {
         let savedSections = JSON.parse(localStorage.getItem('savedSections'));
-
         savedSections[selectedIndex].sectionName = nameToChange;
-        localStorage.setItem('savedSections', JSON.stringify(savedSections)); // Save changes in Local Storage
-
+        localStorage.setItem('savedSections', JSON.stringify(savedSections));
     }
+
     getSections();
     document.querySelector(".modal-overlay").style.display = "none";
     document.querySelector("#modal-input").value = "";
@@ -119,7 +112,6 @@ function getSite() {
             let id = savedSites[i].id;
 
             appendSite(url, domain, id); // Call function to append data into the HTML
-            console.log(url + " " + domain + " " + id); // Check in console each iteration of the loop
         }
     }
 }
@@ -177,7 +169,6 @@ function deleteSite() {
     for (const i in savedSites) {
         if (savedSites[i].domain == anchor) {
             savedSites.splice(i, 1);
-            console.log("li element deleted!");
         }
 
         localStorage.setItem('savedSites', JSON.stringify(savedSites)); // Save changes in Local Storage
@@ -275,20 +266,18 @@ function animateFloatLabel() {
     let inputs = document.querySelectorAll(".form-input");
 
     // loop inside each one of inputs
-    for (const e in inputs) {
-        let target = inputs[e];
-        let inputWrapper = target.parentNode; // Search for parent of the input
-        console.log(inputWrapper);
+    inputs.forEach(input => {
+        let inputWrapper = input.parentNode; // Search for parent of the input
         let label = inputWrapper.querySelector(".floating-label"); // Search for the label for the input
 
         // Apply a focus listener 
-        target.addEventListener('focus', () => {
+        input.addEventListener('focus', () => {
             label.classList.add("label-focused");
             label.classList.add("label-color-focused");
         });
 
         // Apply a unfocus listener to the same element
-        target.addEventListener('blur', () => {
+        input.addEventListener('blur', () => {
             let inputValue = inputWrapper.querySelector(".form-input").value;
             label.classList.remove("label-color-focused");
 
@@ -297,7 +286,7 @@ function animateFloatLabel() {
                 label.classList.remove("label-focused");
             }
         });
-    }
+    });
 }
 
 function rippleEffect() {
@@ -305,11 +294,9 @@ function rippleEffect() {
     rippleElements.forEach(e => e.onmousedown = null); // Remove every listener if already has been applied
 
     // add a listener to each element with ripple class
-    for (const i in rippleElements) {
-        let target = rippleElements[i];
-        target.onmousedown = (e) => {
-
-            let offset = rippleElements[i].getBoundingClientRect(); // Get position relative to the viewport
+    rippleElements.forEach(ripple => {
+        ripple.addEventListener('mousedown', (e) => {
+            let offset = ripple.getBoundingClientRect(); // Get position relative to the viewport
 
             //calculate where has been clicked
             let X = e.clientX - offset.left;
@@ -320,20 +307,19 @@ function rippleEffect() {
             rippleSpan.setAttribute("style", "top:" + Y + "px; left:" + X + "px;");
 
             // If the ripple class have ripple-dark added too will apply dark background, if not white
-            if (rippleElements[i].classList.contains("ripple-dark")) {
+            if (ripple.classList.contains("ripple-dark")) {
                 rippleSpan.style.background = "#000";
             } else {
                 rippleSpan.style.background = "#fff";
             }
 
-            rippleElements[i].appendChild(rippleSpan);
+            ripple.appendChild(rippleSpan);
 
             setTimeout(() => {
                 rippleSpan.parentNode.removeChild(rippleSpan);
             }, 900);
-        };
-
-    }
+        })
+    });
 }
 
 /* Secondary functions made for open/close/hide  */

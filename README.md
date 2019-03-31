@@ -1,7 +1,6 @@
 # Material Design Start Page
 
-
-![](Product_show.png)
+![](Product_show.jpg)
 
 ## Description 
 Minimalist way to bookmark your favorites websites.
@@ -12,14 +11,16 @@ This project come up because I wanted to add something more visual and at the sa
 
 Add new web pages clicking the plus button on each section, also you can edit the section name clicking the float button.
 
+Don't worry about losing your data after close the browser! every change is saved using Local Storage
+
 ## Live Demo
 
 [Try it!](https://material-startpage.herokuapp.com/)
 
 ## Built With
 
-* VScode.
 * HTML, Vanilla CSS and vanilla JS.
+* VScode.
 * Coffee.
 
 ## Version History
