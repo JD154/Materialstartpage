@@ -1,6 +1,6 @@
 # Material Design Start Page
 
-![](Product_show.jpg)
+![](Product_show.png)
 
 ## Description 
 Minimalist way to bookmark your favorites websites.
@@ -25,6 +25,8 @@ Don't worry about losing your data after close the browser! every change is save
 
 ## Version History
 
+* v1.5
+    * [More material components.](https://github.com/JD154/Materialstartpage/releases/tag/v1.5)
 * v1.0
     * [Functional release.](https://github.com/JD154/Materialstartpage/releases/tag/v1.0)
 * v0.7.0
