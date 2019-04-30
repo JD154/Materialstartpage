@@ -31,7 +31,7 @@
     background-attachment: fixed;
     background-size: cover;
     --body-background: #dadcde;
-    --main-fg-color: #745fb5;
+    --main-fg-color: #5c6bc0;
     --main-text-color: #9eaab6;
     --placeholder-text-color: #afbecd;
     --second-text-color: #345;
@@ -43,8 +43,8 @@
     --modal-shadow: 0 11px 15px -7px rgba(0, 0, 0, .2), 0 24px 38px 3px rgba(0, 0, 0, .14), 0 9px 46px 8px rgba(0, 0, 0, .12);
     --fab-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
     --fab-hover-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12);
-    --hover-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    --font-MediumItalic: 'Rubik-MediumItalic', sans-serif;
+    --hover-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    --font-Medium: 'Rubik-Medium', sans-serif;
     --font-regular: 'Rubik-Regular', sans-serif;
     --font-light: 'Rubik-Light', sans-serif;
 }
@@ -330,7 +330,7 @@ button:focus {
     border: none;
     background-color: #f5f5f5;
     font-family: var(--font-regular);
-    font-size: 1rem;
+/*     font-size: 1rem; */
     -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.42);
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.42);
     -webkit-transition: background .18s cubic-bezier(.4, 0, .2, 1), -webkit-box-shadow .18s cubic-bezier(.4, 0, .2, 1);
@@ -373,8 +373,7 @@ button:focus {
     width: 100%;
     height: 4px;
     border: none;
-    background: -webkit-gradient(linear, left top, right top, from(rgba(148, 58, 180, 1)), color-stop(50%, rgba(116, 95, 181, 1)), to(rgba(148, 58, 180, 1)));
-    background: linear-gradient(90deg, rgba(148, 58, 180, 1) 0%, rgba(116, 95, 181, 1) 50%, rgba(148, 58, 180, 1) 100%);
+    background-color: var(--main-fg-color);
     -webkit-animation: header-animation 0.7s forwards 0s ease-in;
     animation: header-animation 0.7s forwards 0s ease-in;
 }
@@ -402,7 +401,7 @@ button:focus {
 }
 
 .show-salute {
-    font-family: var(--font-MediumItalic);
+    font-family: var(--font-Medium);
     color: var(--main-text-color);
     letter-spacing: 1px;
     vertical-align: middle;
@@ -672,7 +671,7 @@ button:focus {
 
 .box-header {
     color: var(--main-fg-color);
-    font-family: var(--font-MediumItalic);
+    font-family: var(--font-regular);
     font-weight: 400;
     white-space: nowrap;
     overflow: hidden;
@@ -887,6 +886,7 @@ button:focus {
     margin-bottom: 5px;
     cursor: pointer;
     font-size: 1rem;
+    color: var(--second-text-color);
     -webkit-transition: background-color 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
     transition: background-color 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
 }
