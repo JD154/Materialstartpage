@@ -308,9 +308,9 @@ function rippleEffect() {
 
             // If the ripple class have ripple-dark added too will apply dark background, if not white
             if (ripple.classList.contains("ripple-dark")) {
-                rippleSpan.style.background = "#000";
+                rippleSpan.style.background = "rgba(0, 0, 0, 0.3)";
             } else {
-                rippleSpan.style.background = "#fff";
+                rippleSpan.style.background = "rgba(255, 255, 255, 0.3";
             }
 
             ripple.appendChild(rippleSpan);
