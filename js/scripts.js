@@ -188,7 +188,7 @@ function getSections() {
     // Looping for each header section found
     for (const i in innerSections) {
         let liItem = document.createElement("li");
-        liItem.className = "ripple ripple-dark hover-dark";
+        liItem.className = "hover-dark";
 
         // If the li element is click will close the entire dropdown
         liItem.addEventListener('click', (e) => {
