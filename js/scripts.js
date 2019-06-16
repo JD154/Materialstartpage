@@ -329,6 +329,7 @@ function openSideBar() {
   document.querySelector(".sidenav").classList.add('sidenav-isvisible');
   document.querySelector(".sidebar-overlay").classList.add('overlay-isvisible');
   document.querySelector(".sidebar-overlay").addEventListener('click', closeSideBar);
+  document.getElementById("get-url").focus();
 }
 
 // When an input field is empty and submit an error message will be displayed
