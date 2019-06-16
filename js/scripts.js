@@ -25,8 +25,8 @@ Array.from(document.querySelectorAll(".add-button")).forEach(function(element) {
 document.querySelector("#close-sidebar").addEventListener('click', closeSideBar);
 
 // Function to get data from input fields when user press the pencil button on side bar
-document.querySelector("#send-data").addEventListener('click', () => {
-
+document.getElementById("bookmark-form").addEventListener('submit', function(event){
+  event.preventDefault();
   // Get content from input fields
   let urlName = document.querySelector("#get-url").value;
   let domainName = document.querySelector("#get-name").value;
@@ -40,8 +40,9 @@ document.querySelector("#send-data").addEventListener('click', () => {
     errorMessage();
   }
 
-  clearValues(); // Clear values
+  clearValues();
 });
+
 
 // Apply event listener to FAB for open modal
 document.querySelector("#modal-trigger").addEventListener('click', () => {

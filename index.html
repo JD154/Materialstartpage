@@ -2,118 +2,118 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/fontawesome.min.css">
-    <title>Startpage</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/fontawesome.min.css">
+  <title>Startpage</title>
 </head>
 
 <body>
-    <nav class="nav-main-wrapper">
-        <hr class="nav-border">
-        <div class="nav-content-wrapper">
-            <div class="nav-content">
-                <h1 class="show-salute"></h1>
-                <p class="show-date"></p>
-            </div>
-        </div>
-    </nav>
-    <div class="centered-bar">
-        <div class="form-wrap">
-            <form class="search-form" method="get" action="https://www.google.com/search">
-                <input class='search-input hover' name='q' type='text' placeholder='Search something' />
-                <button class='go-search ripple ripple-dark hover-dark' type='submit'><i
-                        class="fa fa-search"></i></button>
-            </form>
-        </div>
+  <nav class="nav-main-wrapper">
+    <hr class="nav-border">
+    <div class="nav-content-wrapper">
+      <div class="nav-content">
+        <h1 class="show-salute"></h1>
+        <p class="show-date"></p>
+      </div>
     </div>
-    <div class="sidenav">
-        <i id="close-sidebar" class="fas fa-times closebtn hover-light"></i>
-        <div class="form-error">
-            <p class="form-error-title">You can't leave empty fields</p>
-        </div>
-        <div class="sidebar-form">
-            <p class="sidebar-form-title">New bookmark</p>
-            <div class="input-wrapper">
-                <label for="get-url" class="floating-label">URL domain</label>
-                <input class="form-input hover-dark" type="text" id="get-url">
-            </div>
-            <div class="input-wrapper">
-                <label for="get-name" class="floating-label">Bookmark name</label>
-                <input class="form-input hover-dark" type="text" id="get-name">
-            </div>
-            <button class="ripple submit-form hover-light" id="send-data">add</button>
-        </div>
-        <div class="form-spacer"></div>
-        <div class="form-footer">
-            <p class="form-footer-title">Follow me in social media</p>
-            <div class="my-sites">
-                <a href="https://jdesigndev.xyz/"><i class="icon-site fas fa-home hover-icon"></i></a>
-                <a href="https://github.com/JD154/"><i class="icon-site fab fa-github hover-icon"></i></a>
-                <a href="https://twitter.com/jesus_blanco96"><i class="icon-site fab fa-twitter hover-icon"></i></a>
-                <a href="https://www.instagram.com/jesus_blanco96/"><i
-                        class="icon-site fab fa-instagram hover-icon"></i></a>
-            </div>
-        </div>
+  </nav>
+  <div class="centered-bar">
+    <div class="form-wrap">
+      <form class="search-form" method="get" action="https://www.google.com/search">
+        <input class='search-input hover' name='q' type='text' placeholder='Search something' />
+        <button class='go-search ripple ripple-dark hover-dark' type='submit'><i class="fa fa-search"></i></button>
+      </form>
     </div>
-    <div class="body-wrapper">
-        <div class="box">
-            <h3 class="box-header">Section 1</h3>
-            <ul class="box-content" id="section1">
-            </ul>
-            <div class="add-button" data-section="#section1"><i id="dev-id" class="fas fa-plus-circle"></i></div>
-        </div>
-        <div class="box">
-            <h3 class="box-header">Section 2</h3>
-            <ul class="box-content" id="section2">
-            </ul>
-            <div class="add-button" data-section="#section2"><i id="reddit-id" class="fas fa-plus-circle"></i></div>
-        </div>
-        <div class="box">
-            <h3 class="box-header">Section 3</h3>
-            <ul class="box-content" id="section3">
-            </ul>
-            <div class="add-button" data-section="#section3"><i id="social-id" class="fas fa-plus-circle"></i></div>
-        </div>
-        <div class="box">
-            <h3 class="box-header">Section 4</h3>
-            <ul class="box-content" id="section4">
-            </ul>
-            <div class="add-button" data-section="#section4"><i id="others-id" class="fas fa-plus-circle"></i></div>
-        </div>
+  </div>
+  <div class="sidenav">
+    <i id="close-sidebar" class="fas fa-times closebtn hover-light"></i>
+    <div class="form-error">
+      <p class="form-error-title">You can't leave empty fields</p>
     </div>
-    <button id="modal-trigger" class="ripple float-btn hover-light"><i class="fas fa-pen"></i></button>
-    <div class="modal-overlay">
-        <div class="modal">
-            <div class="modal-header">
-                <p class="modal-title">Edit section</p>
-            </div>
-            <div class="modal-content">
-                <div class="input-wrapper">
-                    <div class="dropdown">
-                        <button id="dropdown-trigger" class="dropdown-btn ripple ripple-dark hover-dark">Select
-                            section</button>
-                        <ul id="page-sections" class="dropdown-content"></ul>
-                    </div>
-                </div>
-                <div class="input-wrapper">
-                    <label for="modal-input" class="floating-label">Replace with</label>
-                    <input id="modal-input" class="form-input hover-dark" type="text">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button id="close-modal" class="modal-btn btn-flat ripple ripple-dark hover-dark">Cancel</button>
-                <button id="section-change" class="modal-btn ripple hover-light">Apply</button>
-            </div>
+    <div class="sidebar-form">
+      <form id="bookmark-form">
+        <p class="sidebar-form-title">New bookmark</p>
+        <div class="input-wrapper">
+          <label for="get-url" class="floating-label">URL domain</label>
+          <input class="form-input hover-dark" type="text" id="get-url">
         </div>
+        <div class="input-wrapper">
+          <label for="get-name" class="floating-label">Bookmark name</label>
+          <input class="form-input hover-dark" type="text" id="get-name">
+        </div>
+        <button class="ripple submit-form hover-light" id="send-data">add</button>
+      </form>
     </div>
-    <footer class="footer-wrap">
-        <p class="footer-content">Made with <i id="heart" class="fas fa-heart"></i> by Jesus Blanco</p>
-    </footer>
-    <div class="sidebar-overlay"></div>
-    <script src="js/scripts.js"></script>
+    <div class="form-spacer"></div>
+    <div class="form-footer">
+      <p class="form-footer-title">Follow me in social media</p>
+      <div class="my-sites">
+        <a href="https://jdesigndev.xyz/"><i class="icon-site fas fa-home hover-icon"></i></a>
+        <a href="https://github.com/JD154/"><i class="icon-site fab fa-github hover-icon"></i></a>
+        <a href="https://twitter.com/jesus_blanco96"><i class="icon-site fab fa-twitter hover-icon"></i></a>
+        <a href="https://www.instagram.com/jesus_blanco96/"><i class="icon-site fab fa-instagram hover-icon"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="body-wrapper">
+    <div class="box">
+      <h3 class="box-header">Section 1</h3>
+      <ul class="box-content" id="section1">
+      </ul>
+      <div class="add-button" data-section="#section1"><i id="dev-id" class="fas fa-plus-circle"></i></div>
+    </div>
+    <div class="box">
+      <h3 class="box-header">Section 2</h3>
+      <ul class="box-content" id="section2">
+      </ul>
+      <div class="add-button" data-section="#section2"><i id="reddit-id" class="fas fa-plus-circle"></i></div>
+    </div>
+    <div class="box">
+      <h3 class="box-header">Section 3</h3>
+      <ul class="box-content" id="section3">
+      </ul>
+      <div class="add-button" data-section="#section3"><i id="social-id" class="fas fa-plus-circle"></i></div>
+    </div>
+    <div class="box">
+      <h3 class="box-header">Section 4</h3>
+      <ul class="box-content" id="section4">
+      </ul>
+      <div class="add-button" data-section="#section4"><i id="others-id" class="fas fa-plus-circle"></i></div>
+    </div>
+  </div>
+  <button id="modal-trigger" class="ripple float-btn hover-light"><i class="fas fa-pen"></i></button>
+  <div class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <p class="modal-title">Edit section</p>
+      </div>
+      <div class="modal-content">
+        <div class="input-wrapper">
+          <div class="dropdown">
+            <button id="dropdown-trigger" class="dropdown-btn ripple ripple-dark hover-dark">Select
+              section</button>
+            <ul id="page-sections" class="dropdown-content"></ul>
+          </div>
+        </div>
+        <div class="input-wrapper">
+          <label for="modal-input" class="floating-label">Replace with</label>
+          <input id="modal-input" class="form-input hover-dark" type="text">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="close-modal" class="modal-btn btn-flat ripple ripple-dark hover-dark">Cancel</button>
+        <button id="section-change" class="modal-btn ripple hover-light">Apply</button>
+      </div>
+    </div>
+  </div>
+  <footer class="footer-wrap">
+    <p class="footer-content">Made with <i id="heart" class="fas fa-heart"></i> by Jesus Blanco</p>
+  </footer>
+  <div class="sidebar-overlay"></div>
+  <script src="js/scripts.js"></script>
 </body>
 
 </html>
