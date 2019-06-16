@@ -609,6 +609,9 @@ button:focus {
 
 .sidebar-form {
     padding: 10px 20px;
+}
+
+#bookmark-form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -717,7 +720,7 @@ button:focus {
     border-top-left-radius: var(--main-border-radius);
     border-top-right-radius: var(--main-border-radius);
 }
-/* 
+/*
 .box-header::after {
     margin-left: 1rem;
     content: '';
